@@ -14,7 +14,7 @@ const codewarsUrl = 'https://www.codewars.com/users/kuniku'
 const fastFingerUrl = 'https://10fastfingers.com/user/2337934/'
 
 const data = {
-    'Name': 'Kukuh Baiquni',
+    'Full Name': 'Kukuh Baiquni',
     'Nationality': 'Indonesia',
     'Gender': 'Male',
     'Address': 'Bandung, Indonesia'
