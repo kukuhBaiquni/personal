@@ -3,6 +3,7 @@ import Profile from './profile_p'
 import AboutMe from './about_me_p'
 import Skill from './skill_p'
 import Portfolio from './portfolio_p'
+import Experience from './experience_p'
 
 import Switch from 'react-switch'
 import { useState } from 'react'
@@ -42,8 +43,8 @@ const Home = () => {
                         <p>CONTACT ME</p>
                     </div>
                     <div className="list-section">
-                        <Switch 
-                            onChange={check => setDark(check)} 
+                        <Switch
+                            onChange={check => setDark(check)}
                             checked={dark}
                             onHandleColor='#bababa'
                             offHandleColor='#bababa'
@@ -65,7 +66,13 @@ const Home = () => {
                 <Profile />
                 <AboutMe />
                 <Skill />
+                <Experience />
                 <Portfolio />
+                <div id="cp">
+                    <p id='cp'>Email: kukuh.baiquni@gmail.com</p>
+                    <p id='cp'>Kukuh Baiquni © 2020</p>
+                    <p id='cp'>Mobile: +62 821 1903 0614</p>
+                </div>
             </div>
         </div>
     )

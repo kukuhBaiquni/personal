@@ -1,9 +1,10 @@
-@import '../../assets/scss/variable.scss';
+@import 'assets/scss/variable.scss';
+@import 'assets/scss/breakpoints.scss';
 @import './home _light.scss';
 
 .home-container {
     background-color: $main_bg;
-
+    overflow: hidden;
     nav {
         background-color: $codewars_black;
         border-bottom: .3vh solid $codewars_red;
@@ -16,17 +17,20 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         .list-section {
             display: flex;
             align-items: center;
             padding: 0 2vh;
             cursor: pointer;
+
             p {
                 transition: color .25s, margin-top .25s;
                 font-weight: bold;
                 color: $codewars_red;
                 font-size: 1.8vh;
             }
+
             .active-indicator {
                 width: 1.5vh;
                 height: 1.5vh;
@@ -34,22 +38,26 @@
                 margin-right: 1vh;
                 transition: border-radius .25s, margin-top .25s;
             }
+
             &:hover {
                 p {
                     color: $codewars_red_hover;
                     margin-top: 5px;
                 }
+
                 .active-indicator {
                     background-color: $codewars_red_hover;
                     border-radius: 50%;
                     margin-top: -10px;
                 }
             }
+
             .switch-icon {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 height: 100%;
+
                 img {
                     height: 2.5vh;
                     width: 2.5vh;
@@ -59,8 +67,10 @@
     }
 
     .content-wrapper {
-        padding: 15vh 20.1%;
-
+        padding: 15vh 20.1% 0;
+        @include tabletOrPhone {
+            display: none;
+        }
         .section-header {
             width: 100%;
             background-color: $codewars_black;
@@ -84,6 +94,7 @@
                 font-size: 1.8vh;
                 margin-right: 2vh;
             }
+
             img {
                 margin-left: 1vh;
                 width: 40vh;
@@ -94,45 +105,58 @@
             width: 100%;
             background-color: $codewars_black;
             margin-bottom: 10vh;
+            &:last-child {
+                margin-bottom: 3vh;
+            }
+
             .padder {
                 padding: 2vh;
                 font-size: 2vh;
                 color: $white_color;
+
                 a {
                     color: $codewars_red;
                     font-weight: bold;
                 }
+
                 h5 {
                     font-size: 2vh;
                     margin-top: 0;
                 }
+
                 img {
                     width: 8vh;
                     height: 8vh;
                     margin-right: 2vh;
                     object-fit: cover;
                 }
+
                 .list {
                     display: flex;
                     justify-content: space-between;
                 }
             }
+
             .flex-wrapper {
                 display: flex;
                 justify-content: space-between;
                 flex-wrap: wrap;
+
                 .skill-box {
                     width: 40vh;
                     height: 20vh;
                     background-color: $codewars_black;
                     margin-bottom: 1.6vh;
                     border-radius: .5vh;
+
                     .cp {
                         padding: 0 2vh;
+
                         h5 {
                             font-size: 2vh;
                             color: $white_color;
                         }
+
                         img {
                             width: 6vh;
                             height: 6vh;
@@ -142,32 +166,75 @@
                     }
                 }
             }
+
             .portfolio-list {
                 padding: .5vh 2vh 2vh;
+
                 h4 {
                     font-size: 2.5vh;
                     color: $codewars_red;
                 }
-                p, i {
+
+                p,
+                i {
                     color: $white_color;
                     font-size: 2vh;
                 }
+
                 img {
                     width: 20vh;
                     margin-right: 2vh;
                     margin-bottom: 2vh;
                     cursor: pointer;
                 }
+
                 .stack-list {
                     display: flex;
                     align-items: center;
+
                     img {
                         width: 5vh;
                         margin-bottom: 2vh;
                     }
                 }
             }
+
+            .exp-body {
+                padding: 5vh 2vh .5vh;
+                display: flex;
+                svg {
+                    height: 38vh;
+                    path {
+                        fill: $codewars_red;
+                    }
+                }
+                .exp-wrapper {
+                    .list-exp {
+                        margin-bottom: 5vh;
+
+                        h5 {
+                            margin: 0;
+                            color: $codewars_red;
+                            font-size: 2vh;
+                        }
+
+                        p {
+                            margin: 0;
+                            color: $white_color;
+                            line-height: 3vh;
+                            font-size: 2vh;
+                        }
+
+                        i {
+                            color: $white_color;
+                            font-size: 2vh;
+                            line-height: 4vh;
+                        }
+                    }
+                }
+            }
         }
+
         .no-bg {
             background-color: transparent;
             margin-bottom: 0;
@@ -180,6 +247,7 @@
                 display: flex;
                 justify-content: space-between;
                 margin: 2vh 0;
+
                 .left {
                     display: flex;
                     flex-direction: column;
@@ -199,21 +267,26 @@
                     padding: 2vh;
                     display: flex;
                     flex-direction: column;
+
                     label {
                         color: $white_color;
                         font-size: 2vh;
                     }
+
                     span {
                         color: $codewars_red;
                         font-size: 2.5vh;
                         margin-bottom: 2vh;
                     }
+
                     p {
                         color: $white_color;
                     }
+
                     .sm-list {
                         margin-top: 2vh;
                         display: flex;
+
                         img {
                             margin-right: 1vh;
                             height: 3.5vh;
@@ -227,6 +300,17 @@
         /* ABOUT ME SECTION */
         .about-me-container {
             width: 100%;
+        }
+
+        #cp {
+            display: flex;
+            align-items: center;
+            p {
+                color: $codewars_red;
+                margin: 1vh 2vh 3vh 0;
+                font-weight: bold;
+                text-align: center;
+            }
         }
     }
 }
