@@ -2,7 +2,6 @@
 @import './home _light.scss';
 
 .home-container {
-    height: 2000px;
     background-color: $main_bg;
 
     nav {
@@ -45,9 +44,6 @@
                     border-radius: 50%;
                     margin-top: -10px;
                 }
-            }
-            .switch-button {
-                background-color: pink;
             }
             .switch-icon {
                 display: flex;
@@ -105,7 +101,49 @@
                     color: $codewars_red;
                     font-weight: bold;
                 }
+                h5 {
+                    font-size: 2vh;
+                    margin-top: 0;
+                }
+                img {
+                    width: 8vh;
+                    height: 8vh;
+                    margin-right: 2vh;
+                    object-fit: cover;
+                }
+                .list {
+                    display: flex;
+                    justify-content: space-between;
+                }
             }
+            .flex-wrapper {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                .skill-box {
+                    width: 40vh;
+                    height: 20vh;
+                    background-color: $codewars_black;
+                    margin-bottom: 1.6vh;
+                    border-radius: .5vh;
+                    .cp {
+                        padding: 0 2vh;
+                        h5 {
+                            font-size: 2vh;
+                            color: $white_color;
+                        }
+                        img {
+                            width: 6vh;
+                            height: 6vh;
+                            margin-right: 2vh;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+        }
+        .no-bg {
+            background-color: transparent;
         }
 
         /* PROFILE SECTION */

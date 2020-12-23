@@ -1,6 +1,8 @@
 import './scss/home.scss'
 import Profile from './profile_p'
 import AboutMe from './about_me_p'
+import Skill from './skill_p'
+
 import Switch from 'react-switch'
 import { useState } from 'react'
 import Sun from 'assets/images/sun.png'
@@ -28,7 +30,11 @@ const Home = () => {
                     </div>
                     <div className="list-section">
                         <div className='active-indicator' />
-                        <p>PROFESSIONAL EXPERIENCE</p>
+                        <p>EXPERIENCE</p>
+                    </div>
+                    <div className="list-section">
+                        <div className='active-indicator' />
+                        <p>PORTFOLIO</p>
                     </div>
                     <div className="list-section">
                         <div className='active-indicator' />
@@ -57,6 +63,7 @@ const Home = () => {
                 </nav>
                 <Profile />
                 <AboutMe />
+                <Skill />
             </div>
         </div>
     )
