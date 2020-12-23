@@ -1,0 +1,165 @@
+@import '../../assets/scss/variable.scss';
+
+.w-home-container {
+    height: 2000px;
+    background-color: $w_main_bg;
+
+    nav {
+        background-color: $w_codewars_black;
+        border-bottom: .3vh solid $w_codewars_red;
+        width: 60%;
+        height: 10vh;
+        position: fixed;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        border-bottom-right-radius: .5vh;
+        border-bottom-left-radius: .5vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .list-section {
+            display: flex;
+            align-items: center;
+            padding: 0 2vh;
+            cursor: pointer;
+            p {
+                transition: color .25s, margin-top .25s;
+                font-weight: normal;
+                color: $w_codewars_red;
+                font-size: 1.8vh;
+            }
+            .active-indicator {
+                width: 1.5vh;
+                height: 1.5vh;
+                background-color: $w_codewars_red;
+                margin-right: 1vh;
+                transition: border-radius .25s, margin-top .25s;
+            }
+            &:hover {
+                p {
+                    color: $w_codewars_red_hover;
+                    margin-top: 5px;
+                }
+                .active-indicator {
+                    background-color: $w_codewars_red_hover;
+                    border-radius: 50%;
+                    margin-top: -10px;
+                }
+            }
+            .switch-icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                img {
+                    height: 2.5vh;
+                    width: 2.5vh;
+                }
+            }
+        }
+    }
+
+    .content-wrapper {
+        padding: 15vh 20.1%;
+
+        .section-header {
+            width: 100%;
+            background-color: $w_codewars_black;
+            height: 6vh;
+            display: flex;
+            align-items: center;
+            border-radius: .5vh;
+            margin: 2vh 0;
+            display: flex;
+            justify-content: space-between;
+
+            h4 {
+                font-size: 2.5vh;
+                margin-left: 2vh;
+                color: $w_codewars_red
+            }
+
+            a {
+                color: $w_codewars_red;
+                font-weight: bold;
+                font-size: 1.8vh;
+                margin-right: 2vh;
+            }
+            img {
+                margin-left: 1vh;
+                width: 40vh;
+            }
+        }
+
+        .section-body {
+            width: 100%;
+            background-color: $w_codewars_black;
+            .padder {
+                padding: 2vh;
+                font-size: 2vh;
+                color: $w_white_color;
+                a {
+                    color: $w_codewars_red;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        /* PROFILE SECTION */
+        .profile-container {
+
+            section {
+                display: flex;
+                justify-content: space-between;
+                margin: 2vh 0;
+                .left {
+                    display: flex;
+                    flex-direction: column;
+
+                    img#me {
+                        width: 35vh;
+                        height: 40vh;
+                        border-right: 2vh solid $w_main_bg;
+                        object-fit: cover;
+                        // border-radius: .5vh;
+                    }
+                }
+
+                .right {
+                    background-color: $w_codewars_black;
+                    width: 84%;
+                    padding: 2vh;
+                    display: flex;
+                    flex-direction: column;
+                    label {
+                        color: $w_white_color;
+                        font-size: 2vh;
+                    }
+                    span {
+                        color: $w_codewars_red;
+                        font-size: 2.5vh;
+                        margin-bottom: 2vh;
+                    }
+                    p {
+                        color: $w_white_color;
+                    }
+                    .sm-list {
+                        margin-top: 2vh;
+                        display: flex;
+                        img {
+                            margin-right: 1vh;
+                            height: 3.5vh;
+                            width: 3.5vh;
+                        }
+                    }
+                }
+            }
+        }
+
+        /* ABOUT ME SECTION */
+        .about-me-container {
+            width: 100%;
+        }
+    }
+}
