@@ -6,10 +6,14 @@ import SS4 from 'assets/images/screenshot/ss4.jpeg'
 import Extranet1 from 'assets/images/screenshot/extranet1.png'
 import Extranet2 from 'assets/images/screenshot/extranet2.png'
 import Extranet3 from 'assets/images/screenshot/extranet3.png'
+import Extranet4 from 'assets/images/screenshot/extranet4.png'
+import Extranet5 from 'assets/images/screenshot/extranet5.png'
 
 import TSQ1 from 'assets/images/screenshot/tsq1.png'
 import TSQ2 from 'assets/images/screenshot/tsq2.png'
 import TSQ3 from 'assets/images/screenshot/tsq3.png'
+import TSQ4 from 'assets/images/screenshot/tsq4.png'
+import TSQ5 from 'assets/images/screenshot/tsq5.png'
 
 import Javascript from 'assets/images/js.png'
 import JQuery from 'assets/images/jquery.png'
@@ -25,7 +29,19 @@ import SASS from 'assets/images/sass.png'
 import Bootstrap from 'assets/images/bootstrap.png'
 import Puppeteer from 'assets/images/puppeteer.png'
 
+import Lightbox from 'react-image-lightbox'
+import { useState } from 'react'
+
+const imagesMob = [SS1, SS2, SS3, SS4]
+const imagesTsq = [TSQ1, TSQ2, TSQ3, TSQ4, TSQ5]
+const imagesExtranet = [Extranet1, Extranet2, Extranet3, Extranet4, Extranet5]
+
 const Portfolio = () => {
+
+    const [tsqImage, setTsqImage] = useState({ isOpen: false, index: 0 })
+    const [mobImage, setMobImage] = useState({ isOpen: false, index: 0 })
+    const [extranetImage, setExtranetImage] = useState({ isOpen: false, index: 0 })
+
     return (
         <div className="portfolio-container">
             <div className="section-header">
@@ -62,10 +78,7 @@ const Portfolio = () => {
                         <img title='Redux' src={Redux} alt='Redux' />
                         <img style={{ width: '8vh' }} title='Redux Saga' src={ReduxSaga} alt='Redux Saga' />
                     </div>
-                    <img src={SS1} alt='screenshot' />
-                    <img src={SS2} alt='screenshot' />
-                    <img src={SS3} alt='screenshot' />
-                    <img src={SS4} alt='screenshot' />
+                    {imagesMob.map((url, index) => <img key={index} onClick={() => setMobImage({ index, isOpen: true })} src={url} alt='screenshot' />)}
                     <hr />
                     <h4>TravelSquare Website (User)</h4>
                     <p>
@@ -81,9 +94,7 @@ const Portfolio = () => {
                         <img title='Java Spring' style={{ width: '7vh' }} src={Spring} alt='Java Spring' />
                         <img style={{ width: '8vh' }} title='SASS' src={SASS} alt='SASS' />
                     </div>
-                    <img style={{ width: '37.5vh' }} src={TSQ1} alt='screenshot' />
-                    <img style={{ width: '37.5vh' }} src={TSQ2} alt='screenshot' />
-                    <img style={{ width: '37.5vh' }} src={TSQ3} alt='screenshot' />
+                    {imagesTsq.map((url, index) => <img key={index} onClick={() => setTsqImage({ index, isOpen: true })} style={{ width: '37.5vh' }} src={url} alt='screenshot' />)}
                     <h4>TravelSquare Website (Extranet)</h4>
                     <p>
                         This Website was created for provide & edit hotel information.
@@ -98,9 +109,7 @@ const Portfolio = () => {
                         <img title='Java Spring' style={{ width: '7vh' }} src={Spring} alt='Java Spring' />
                         <img style={{ width: '8vh' }} title='SASS' src={SASS} alt='SASS' />
                     </div>
-                    <img style={{ width: '37.5vh' }} src={Extranet1} alt='screenshot' />
-                    <img style={{ width: '37.5vh' }} src={Extranet2} alt='screenshot' />
-                    <img style={{ width: '37.5vh' }} src={Extranet3} alt='screenshot' />
+                    {imagesExtranet.map((url, index) => <img key={index} onClick={() => setExtranetImage({ index, isOpen: true })} style={{ width: '37.5vh' }} src={url} alt='screenshot' />)}
                     <h4>TravelSquare Pricing Comparison Engine (Service)</h4>
                     <p>
                         This is a crawler, created for collecting realtime price from others OTA.
@@ -111,9 +120,42 @@ const Portfolio = () => {
                         <img title='NodeJS & ExpressJS' src={NodeJS} alt='NodeJS' />
                         <img title='Puppeteer' src={Puppeteer} alt='Puppeteer' />
                     </div>
-                    <i>Image not available.</i>
+                    <i>Images not available.</i>
                 </div>
             </div>
+            {
+                mobImage.isOpen &&
+                <Lightbox
+                    mainSrc={imagesMob[mobImage.index]}
+                    nextSrc={imagesMob[(mobImage.index + 1) % imagesMob.length]}
+                    prevSrc={imagesMob[(mobImage.index + imagesMob.length - 1) % imagesMob.length]}
+                    onCloseRequest={() => setMobImage({isOpen: false, index: 0})}
+                    onMovePrevRequest={() => setMobImage({...mobImage, index: (mobImage.index + imagesMob.length - 1) % imagesMob.length})}
+                    onMoveNextRequest={() => setMobImage({...mobImage, index: (mobImage.index + 1) % imagesMob.length})}
+                />
+            }
+            {
+                extranetImage.isOpen &&
+                <Lightbox
+                    mainSrc={imagesExtranet[extranetImage.index]}
+                    nextSrc={imagesExtranet[(extranetImage.index + 1) % imagesExtranet.length]}
+                    prevSrc={imagesExtranet[(extranetImage.index + imagesExtranet.length - 1) % imagesExtranet.length]}
+                    onCloseRequest={() => setExtranetImage({isOpen: false, index: 0})}
+                    onMovePrevRequest={() => setExtranetImage({...extranetImage, index: (extranetImage.index + imagesExtranet.length - 1) % imagesExtranet.length})}
+                    onMoveNextRequest={() => setExtranetImage({...extranetImage, index: (extranetImage.index + 1) % imagesExtranet.length})}
+                />
+            }
+            {
+                tsqImage.isOpen &&
+                <Lightbox
+                    mainSrc={imagesTsq[tsqImage.index]}
+                    nextSrc={imagesTsq[(tsqImage.index + 1) % imagesTsq.length]}
+                    prevSrc={imagesTsq[(tsqImage.index + imagesTsq.length - 1) % imagesTsq.length]}
+                    onCloseRequest={() => setTsqImage({isOpen: false, index: 0})}
+                    onMovePrevRequest={() => setTsqImage({...tsqImage, index: (tsqImage.index + imagesTsq.length - 1) % imagesTsq.length})}
+                    onMoveNextRequest={() => setTsqImage({...tsqImage, index: (tsqImage.index + 1) % imagesTsq.length})}
+                />
+            }
         </div>
     )
 }
