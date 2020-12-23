@@ -65,6 +65,18 @@
             }
         }
     }
+    .forbidden {
+        background-color: $main_bg;
+        padding: 2vh;
+        height: 100vh;
+        overflow: hidden;
+        p {
+            color: $white_color;
+        }
+        @include desktop {
+            display: none;
+        }
+    }
 
     .content-wrapper {
         padding: 15vh 20.1% 0;
