@@ -93,6 +93,7 @@
         .section-body {
             width: 100%;
             background-color: $codewars_black;
+            margin-bottom: 10vh;
             .padder {
                 padding: 2vh;
                 font-size: 2vh;
@@ -141,9 +142,25 @@
                     }
                 }
             }
+            .portfolio-list {
+                padding: 1vh 2vh 2vh;
+                h4 {
+                    font-size: 2.5vh;
+                    color: $codewars_red;
+                }
+                p, i {
+                    color: $white_color;
+                    font-size: 2vh;
+                }
+                img {
+                    width: 20vh;
+                    margin-right: 2vh;
+                }
+            }
         }
         .no-bg {
             background-color: transparent;
+            margin-bottom: 0;
         }
 
         /* PROFILE SECTION */
@@ -159,7 +176,7 @@
 
                     img#me {
                         width: 35vh;
-                        height: 40vh;
+                        height: 41vh;
                         border-right: 2vh solid $main_bg;
                         object-fit: cover;
                         // border-radius: .5vh;

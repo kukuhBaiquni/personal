@@ -2,6 +2,7 @@ import './scss/home.scss'
 import Profile from './profile_p'
 import AboutMe from './about_me_p'
 import Skill from './skill_p'
+import Portfolio from './portfolio_p'
 
 import Switch from 'react-switch'
 import { useState } from 'react'
@@ -64,6 +65,7 @@ const Home = () => {
                 <Profile />
                 <AboutMe />
                 <Skill />
+                <Portfolio />
             </div>
         </div>
     )
