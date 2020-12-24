@@ -29,11 +29,7 @@ const Home = () => {
 
     return (
         <div className={dark ? 'home-container' : 'w-home-container'}>
-            {/* <div className="forbidden">
-                <p>Sorry for inconvenience, mobile view still under development.</p>
-                <p>You can try desktop mode if you open this website using mobile browser.</p>
-                <p>Regards, Kukuh</p>
-            </div> */}
+            <h1 style={{display: 'none'}}>Kukuh Baiquni</h1>
             <div className="content-wrapper">
                 <nav>
                     <div onClick={scrollToTop} className="list-section">

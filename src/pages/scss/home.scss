@@ -7,6 +7,7 @@
     overflow: hidden;
 
     nav {
+        z-index: 100;
         background-color: $codewars_black;
         border-bottom: .3vh solid $codewars_red;
         width: 60%;
@@ -144,6 +145,7 @@
             width: 100%;
             background-color: $codewars_black;
             margin-bottom: 10vh;
+            position: relative;
 
             &:last-child {
                 margin-bottom: 3vh;
@@ -169,11 +171,49 @@
                     height: 8vh;
                     margin-right: 2vh;
                     object-fit: cover;
+                    margin-bottom: 2vh;
+                    @include tabletOrPhone {
+                    }
                 }
 
                 .list {
                     display: flex;
                     justify-content: space-between;
+                    @include tabletOrPhone {
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+
+            .arrow-slider {
+                height: 100%;
+                position: absolute;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                top: 0;
+                left: 0;
+                width: 100%;
+
+                @include desktop {
+                    display: none;
+                }
+
+                svg {
+                    width: 5vh;
+
+                    &:first-child {
+                        margin-left: 1vh;
+                    }
+
+                    &:last-child {
+                        transform: rotate(180deg);
+                        margin-right: 1vh;
+                    }
+
+                    path {
+                        fill: $codewars_red;
+                    }
                 }
             }
 
@@ -403,7 +443,14 @@
     }
 }
 
-.slick-slider {
+.slick-slider.slick-initialized {
+    @include desktop {
+        display: none;
+    }
+    button.slick-arrow.slick-prev, button.slick-arrow.slick-next {
+        display: none !important;
+    }
+
     .skill-box {
         width: 40vh;
         height: 20vh;
@@ -432,6 +479,7 @@
             .list-logo {
                 display: flex;
                 justify-content: center;
+
                 img {
                     width: 6vh;
                     height: 6vh;

@@ -20,8 +20,11 @@ import HTML from 'assets/images/html.png'
 import CSS from 'assets/images/css.png'
 import SASS from 'assets/images/sass.png'
 import Bootstrap from 'assets/images/bootstrap.png'
+import { ReactComponent as Chevron } from 'assets/images/chevron.svg'
 
 import Slider from 'react-slick'
+import { useRef } from 'react'
+
 
 const settings = {
     infinite: true,
@@ -40,13 +43,16 @@ const skills = [
 ]
 
 const Skill = ({ skillRef }) => {
+
+    const baseSkill = useRef()
+
     return (
         <div ref={skillRef} className="skill-container">
             <div className="section-header">
                 <h4>SKILL AND COMPETENCES</h4>
             </div>
             <div className="section-body no-bg">
-                <Slider {...settings}>
+                <Slider ref={baseSkill} {...settings}>
                     {
                         skills.map(({ name, list }, index) => (
                             <div key={index} className="skill-box">
@@ -64,6 +70,10 @@ const Skill = ({ skillRef }) => {
                         ))
                     }
                 </Slider>
+                <div className="arrow-slider">
+                    <Chevron onClick={() => baseSkill.current.slickPrev()} />
+                    <Chevron onClick={() => baseSkill.current.slickNext()} />
+                </div>
                 <div className="flex-wrapper">
                     {
                         skills.map(({ name, list }, index) => (
@@ -83,7 +93,7 @@ const Skill = ({ skillRef }) => {
             </div>
             <div className="section-body">
                 <div className="padder">
-                    <h5>Others Technology</h5>
+                    <h5>Others Technology</h5>                    
                     <div className="list">
                         <img title='NodeJS & ExpressJS' src={NodeJS} alt='node' />
                         <img title='Redux' style={{ width: '6.5vh', height: '6vh' }} src={Redux} alt='redux' />

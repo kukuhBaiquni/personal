@@ -26,10 +26,6 @@ const Profile = () => {
             <div className="section-header">
                 <h4>MY PROFILE</h4>
             </div>
-            <div className="section-header">
-                <img id='codewars' src={codewarsBadge} alt='codewars' />
-                <a href="https://codewars.com" target="_blank" rel="noopener noreferrer">Join Codewars</a>
-            </div>
             <section className='profile-section'>
                 <div className="left">
                     <img id='me' src={Image} alt='me' />
@@ -63,6 +59,10 @@ const Profile = () => {
                     </div>
                 </div>
             </section>
+            <div className="section-header">
+                <img id='codewars' src={codewarsBadge} alt='codewars' />
+                <a href="https://codewars.com" target="_blank" rel="noopener noreferrer">Join Codewars</a>
+            </div>
         </div>
     )
 }
