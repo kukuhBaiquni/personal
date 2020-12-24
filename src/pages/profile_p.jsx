@@ -7,7 +7,7 @@ import Codewars from 'assets/images/codewars.png'
 import FastFinger from 'assets/images/ff.png'
 
 const codewarsBadge = 'https://www.codewars.com/users/kuniku/badges/large'
-const facebookUrl = 'https://web.facebook.com/imfamousyea'
+const facebookUrl = 'https://web.facebook.com/kukuhbaiquni'
 const linkedInUrl = 'https://www.linkedin.com/in/kukuh-baiquni-a14580163/'
 const githubUrl = 'https://github.com/kukuhBaiquni'
 const codewarsUrl = 'https://www.codewars.com/users/kuniku'

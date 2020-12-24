@@ -12,9 +12,9 @@ const Experience = () => {
                     <Tree />
                     <div className="exp-wrapper">
                         <div className="list-exp">
-                            <p>Student</p>
-                            <h5>Rubicamp - Fullstack Programming Bootcamp</h5>
-                            <i>Feb 2018 - May 2018</i>
+                            <p>Frontend Developer</p>
+                            <h5>PT. Ramat Loka Teknologi - DotErb Solution</h5>
+                            <i>Oct 2019 - Present</i>
                         </div>
                         <div className="list-exp">
                             <p>Fullstack Developer</p>
@@ -22,9 +22,9 @@ const Experience = () => {
                             <i>Aug 2018 - Aug 2019</i>
                         </div>
                         <div className="list-exp">
-                            <p>Frontend Developer</p>
-                            <h5>PT. Ramat Loka Teknologi - DotErb Solution</h5>
-                            <i>Oct 2019 - Present</i>
+                            <p>Student</p>
+                            <h5>Rubicamp - Fullstack Programming Bootcamp</h5>
+                            <i>Feb 2018 - May 2018</i>
                         </div>
                     </div>
                 </div>
