@@ -36,14 +36,14 @@ const imagesMob = [SS1, SS2, SS3, SS4]
 const imagesTsq = [TSQ1, TSQ2, TSQ3, TSQ4, TSQ5]
 const imagesExtranet = [Extranet1, Extranet2, Extranet3, Extranet4, Extranet5]
 
-const Portfolio = () => {
+const Portfolio = ({portfolioRef}) => {
 
     const [tsqImage, setTsqImage] = useState({ isOpen: false, index: 0 })
     const [mobImage, setMobImage] = useState({ isOpen: false, index: 0 })
     const [extranetImage, setExtranetImage] = useState({ isOpen: false, index: 0 })
 
     return (
-        <div className="portfolio-container">
+        <div ref={portfolioRef} className="portfolio-container">
             <div className="section-header">
                 <h4>PORTFOLIO</h4>
             </div>

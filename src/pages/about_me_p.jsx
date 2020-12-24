@@ -1,9 +1,9 @@
 
 const codewars = 'https://codewars.com'
 
-const AboutMe = () => {
+const AboutMe = ({aboutRef}) => {
     return(
-        <div className="about-me-container">
+        <div ref={aboutRef} className="about-me-container">
             <div className="section-header">
                 <h4>ABOUT ME</h4>
             </div>

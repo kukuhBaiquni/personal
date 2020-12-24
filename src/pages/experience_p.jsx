@@ -1,9 +1,9 @@
 
 import { ReactComponent as Tree } from 'assets/images/tree.svg'
 
-const Experience = () => {
+const Experience = ({experienceRef}) => {
     return (
-        <div className="experience-container">
+        <div ref={experienceRef} className="experience-container">
             <div className="section-header">
                 <h4>PROFESIONAL EXPERIENCE</h4>
             </div>

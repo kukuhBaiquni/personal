@@ -21,9 +21,9 @@ import CSS from 'assets/images/css.png'
 import SASS from 'assets/images/sass.png'
 import Bootstrap from 'assets/images/bootstrap.png'
 
-const Skill = () => {
+const Skill = ({skillRef}) => {
     return (
-        <div className="skill-container">
+        <div ref={skillRef} className="skill-container">
             <div className="section-header">
                 <h4>SKILL AND COMPETENCES</h4>
             </div>
