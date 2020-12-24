@@ -65,7 +65,7 @@ const dataList = [
     },
     {
         name: 'TravelSquare Pricing Comparison Engine (Backend Service)',
-        description: 'This Website was created for provide & edit hotel information.',
+        description: 'This is a crawler, created for collecting realtime price from others OTA.',
         stack: [{ url: Javascript, title: 'Javascript' }, { url: NodeJS, title: 'NodeJS' }, { url: Express, title: 'ExpressJS' }, { url: Puppeteer, title: 'Puppeteer' }],
         shot: []
     }
