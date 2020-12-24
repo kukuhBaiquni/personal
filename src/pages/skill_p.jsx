@@ -86,7 +86,7 @@ const Skill = ({ skillRef }) => {
                 <Slider ref={baseSkill} {...settings}>
                     {
                         skills.map(({ name, list }, index) => (
-                            <div key={index} className="skill-box">
+                            <div id='skill-box' key={index} className="skill-box">
                                 <div className="cp">
                                     <h5>{name}</h5>
                                     <div className="list-logo">

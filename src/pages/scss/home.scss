@@ -30,6 +30,19 @@
             padding: 0 2vh;
             cursor: pointer;
 
+            svg {
+                width: 3vh;
+                height: 3vh;
+
+                path {
+                    fill: $codewars_red;
+                }
+
+                @include desktop {
+                    display: none;
+                }
+            }
+
             p {
                 transition: color .25s, margin-top .25s;
                 font-weight: bold;
@@ -176,8 +189,8 @@
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: center;
-                    @include tabletOrPhone {
-                    }
+
+                    @include tabletOrPhone {}
                 }
             }
 
@@ -228,6 +241,7 @@
                     background-color: $codewars_black;
                     border-radius: .5vh;
                     margin: 0 .5vh 1.6vh;
+
                     @include tabletOrPhone {
                         justify-content: center;
                         width: 100%;
@@ -258,6 +272,7 @@
 
             .portfolio-list {
                 padding: .5vh 2vh 2vh;
+
                 @include tabletOrPhone {
                     text-align: center;
                 }
@@ -285,6 +300,7 @@
                         display: flex;
                         justify-content: center;
                     }
+
                     img {
                         height: 5vh;
                         width: 8vh;
@@ -306,7 +322,11 @@
                 svg {
                     height: 38vh;
 
-                    path {
+                    rect {
+                        fill: $codewars_red;
+                    }
+
+                    circle {
                         fill: $codewars_red;
                     }
                 }
@@ -432,9 +452,62 @@
             width: 100%;
         }
 
+        .skill-container {
+            .slick-slider.slick-initialized {
+                @include desktop {
+                    display: none;
+                }
+
+                button.slick-arrow.slick-prev,
+                button.slick-arrow.slick-next {
+                    display: none;
+                }
+
+                .skill-box {
+                    width: 40vh;
+                    height: 20vh;
+                    background-color: $codewars_black;
+                    margin-bottom: 1.6vh;
+                    border-radius: .5vh;
+
+                    @include tabletOrPhone {
+                        justify-content: center;
+                        width: 100%;
+                        overflow: auto;
+                    }
+
+                    .cp {
+                        padding: 0 2vh;
+
+                        @include tabletOrPhone {
+                            text-align: center;
+                        }
+
+                        h5 {
+                            font-size: 2vh;
+                            color: $white_color;
+                        }
+
+                        .list-logo {
+                            display: flex;
+                            justify-content: center;
+
+                            img {
+                                width: 6vh;
+                                height: 6vh;
+                                margin-right: 2vh;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         #cp {
             display: flex;
             align-items: center;
+
             @include tabletOrPhone {
                 flex-direction: column;
                 justify-content: center;
@@ -445,56 +518,9 @@
                 margin: 1vh 2vh 3vh 0;
                 font-weight: bold;
                 text-align: center;
+
                 @include tabletOrPhone {
                     margin-bottom: 0;
-                }
-            }
-        }
-    }
-}
-
-.slick-slider.slick-initialized {
-    @include desktop {
-        display: none;
-    }
-    button.slick-arrow.slick-prev, button.slick-arrow.slick-next {
-        display: none !important;
-    }
-
-    .skill-box {
-        width: 40vh;
-        height: 20vh;
-        background-color: $codewars_black;
-        margin-bottom: 1.6vh;
-        border-radius: .5vh;
-
-        @include tabletOrPhone {
-            justify-content: center;
-            width: 100%;
-            overflow: auto;
-        }
-
-        .cp {
-            padding: 0 2vh;
-
-            @include tabletOrPhone {
-                text-align: center;
-            }
-
-            h5 {
-                font-size: 2vh;
-                color: $white_color;
-            }
-
-            .list-logo {
-                display: flex;
-                justify-content: center;
-
-                img {
-                    width: 6vh;
-                    height: 6vh;
-                    margin-right: 2vh;
-                    object-fit: cover;
                 }
             }
         }

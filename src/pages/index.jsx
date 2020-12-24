@@ -6,19 +6,37 @@ import Portfolio from './portfolio_p'
 import Experience from './experience_p'
 
 import Switch from 'react-switch'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Sun from 'assets/images/sun.png'
 import Moon from 'assets/images/moon.png'
 
+import { ReactComponent as UserIcon } from 'assets/icon/profile.svg'
+import { ReactComponent as AboutIcon } from 'assets/icon/about.svg'
+import { ReactComponent as ExperienceIcon } from 'assets/icon/experience.svg'
+import { ReactComponent as PortfolioIcon } from 'assets/icon/portfolio.svg'
+import { ReactComponent as ContactIcon } from 'assets/icon/contact.svg'
+import { ReactComponent as SkillIcon } from 'assets/icon/skill.svg'
 
 const Home = () => {
     
-    const [dark, setDark] = useState(true)
+    const [dark, setDark] = useState(false)
     const aboutRef = useRef(null)
     const skillRef = useRef(null)
     const experienceRef = useRef(null)
     const portfolioRef = useRef(null)
     const bottomRef = useRef(null)
+
+    useEffect(() => {
+        const theme = JSON.parse(localStorage.getItem('theme'))
+        if (theme) {
+            setDark(theme)
+        }
+    }, [])
+
+    const changeTheme = args => {
+        localStorage.setItem('theme', args)
+        setDark(args)
+    }
 
     const scrollToTop = () => window.scrollTo(0, 0)
     const scrollToAbout = () => aboutRef.current.scrollIntoView()
@@ -33,32 +51,38 @@ const Home = () => {
             <div className="content-wrapper">
                 <nav>
                     <div onClick={scrollToTop} className="list-section">
+                        <UserIcon />
                         <div className='active-indicator' />
                         <p>PROFILE</p>
                     </div>
                     <div onClick={scrollToAbout} className="list-section">
+                        <AboutIcon />
                         <div className='active-indicator' />
                         <p>ABOUT ME</p>
                     </div>
                     <div onClick={scrollToSkill} className="list-section">
+                        <SkillIcon />
                         <div className='active-indicator' />
                         <p>SKILL AND COMPETENCES</p>
                     </div>
                     <div onClick={scrollToExperience} className="list-section">
+                        <ExperienceIcon />
                         <div className='active-indicator' />
                         <p>EXPERIENCE</p>
                     </div>
                     <div onClick={scrollToPortfolio} className="list-section">
+                        <PortfolioIcon />
                         <div className='active-indicator' />
                         <p>PORTFOLIO</p>
                     </div>
                     <div onClick={scrollToBottom} className="list-section">
+                        <ContactIcon />
                         <div className='active-indicator' />
                         <p>CONTACT ME</p>
                     </div>
                     <div className="list-section">
                         <Switch
-                            onChange={check => setDark(check)}
+                            onChange={changeTheme}
                             checked={dark}
                             onHandleColor='#bababa'
                             offHandleColor='#bababa'

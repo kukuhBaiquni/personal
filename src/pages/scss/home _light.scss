@@ -4,7 +4,9 @@
 .w-home-container {
     background-color: $w_main_bg;
     overflow: hidden;
+
     nav {
+        z-index: 100;
         background-color: $w_codewars_black;
         border-bottom: .3vh solid $w_codewars_red;
         width: 60%;
@@ -17,17 +19,38 @@
         justify-content: space-between;
         align-items: center;
 
+        @include tabletOrPhone {
+            width: 100%;
+        }
+
         .list-section {
             display: flex;
             align-items: center;
             padding: 0 2vh;
             cursor: pointer;
 
+            svg {
+                width: 3vh;
+                height: 3vh;
+
+                path {
+                    fill: $w_codewars_red;
+                }
+
+                @include desktop {
+                    display: none;
+                }
+            }
+
             p {
                 transition: color .25s, margin-top .25s;
                 font-weight: bold;
                 color: $w_codewars_red;
                 font-size: 1.8vh;
+
+                @include tabletOrPhone {
+                    display: none;
+                }
             }
 
             .active-indicator {
@@ -36,18 +59,20 @@
                 background-color: $w_codewars_red;
                 margin-right: 1vh;
                 transition: border-radius .25s, margin-top .25s;
+
+                @include tabletOrPhone {
+                    display: none;
+                }
             }
 
             &:hover {
                 p {
                     color: $w_codewars_red_hover;
-                    margin-top: 5px;
                 }
 
                 .active-indicator {
                     background-color: $w_codewars_red_hover;
                     border-radius: 50%;
-                    margin-top: -10px;
                 }
             }
 
@@ -64,24 +89,30 @@
             }
         }
     }
-    .forbidden {
-        background-color: $w_main_bg;
-        padding: 2vh;
-        height: 100vh;
-        overflow: hidden;
-        p {
-            color: $w_white_color;
-        }
-        @include desktop {
-            display: none;
-        }
-    }
+
+    // .forbidden {
+    //     background-color: $w_main_bg;
+    //     padding: 2vh;
+    //     height: 100vh;
+    //     overflow: hidden;
+    //     p {
+    //         color: $w_white_color;
+    //     }
+    //     @include desktop {
+    //         display: none;
+    //     }
+    // }
 
     .content-wrapper {
         padding: 15vh 20.1% 0;
+
+        // @include tabletOrPhone {
+        //     display: none;
+        // }
         @include tabletOrPhone {
-            display: none;
+            padding: 10vh 0;
         }
+
         .section-header {
             width: 100%;
             background-color: $w_codewars_black;
@@ -104,11 +135,21 @@
                 font-weight: bold;
                 font-size: 1.8vh;
                 margin-right: 2vh;
+
+                @include tabletOrPhone {
+                    display: none;
+                }
             }
 
             img {
                 margin-left: 1vh;
                 width: 40vh;
+
+                @include tabletOrPhone {
+                    margin: auto;
+                    width: 95%;
+                    height: 100%;
+                }
             }
         }
 
@@ -116,6 +157,8 @@
             width: 100%;
             background-color: $w_codewars_black;
             margin-bottom: 10vh;
+            position: relative;
+
             &:last-child {
                 margin-bottom: 3vh;
             }
@@ -136,15 +179,49 @@
                 }
 
                 img {
-                    width: 8vh;
                     height: 8vh;
-                    margin-right: 2vh;
-                    object-fit: cover;
+                    margin-right: 5vh;
+                    margin-bottom: 3vh;
                 }
 
                 .list {
                     display: flex;
-                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    justify-content: center;
+
+                    @include tabletOrPhone {}
+                }
+            }
+
+            .arrow-slider {
+                height: 100%;
+                position: absolute;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                top: 0;
+                left: 0;
+                width: 100%;
+
+                @include desktop {
+                    display: none;
+                }
+
+                svg {
+                    width: 5vh;
+
+                    &:first-child {
+                        margin-left: 1vh;
+                    }
+
+                    &:last-child {
+                        transform: rotate(180deg);
+                        margin-right: 1vh;
+                    }
+
+                    path {
+                        fill: $w_codewars_red;
+                    }
                 }
             }
 
@@ -153,15 +230,29 @@
                 justify-content: space-between;
                 flex-wrap: wrap;
 
+                @include tabletOrPhone {
+                    display: none;
+                }
+
                 .skill-box {
                     width: 40vh;
                     height: 20vh;
                     background-color: $w_codewars_black;
-                    margin-bottom: 1.6vh;
                     border-radius: .5vh;
+                    margin: 0 .5vh 1.6vh;
+
+                    @include tabletOrPhone {
+                        justify-content: center;
+                        width: 100%;
+                        overflow: auto;
+                    }
 
                     .cp {
                         padding: 0 2vh;
+
+                        @include tabletOrPhone {
+                            text-align: center;
+                        }
 
                         h5 {
                             font-size: 2vh;
@@ -181,6 +272,10 @@
             .portfolio-list {
                 padding: .5vh 2vh 2vh;
 
+                @include tabletOrPhone {
+                    text-align: center;
+                }
+
                 h4 {
                     font-size: 2.5vh;
                     color: $w_codewars_red;
@@ -192,7 +287,7 @@
                     font-size: 2vh;
                 }
 
-                img {
+                img.sshot {
                     width: 20vh;
                     margin-right: 2vh;
                     margin-bottom: 2vh;
@@ -200,12 +295,21 @@
                 }
 
                 .stack-list {
-                    display: flex;
-                    align-items: center;
+                    @include tabletOrPhone {
+                        display: flex;
+                        justify-content: center;
+                    }
 
                     img {
-                        width: 5vh;
+                        height: 5vh;
+                        width: 8vh;
                         margin-bottom: 2vh;
+                        object-fit: contain;
+
+                        @include tabletOrPhone {
+                            height: 3vh;
+                            width: 5vh;
+                        }
                     }
                 }
             }
@@ -213,15 +317,19 @@
             .exp-body {
                 padding: 5vh 2vh .5vh;
                 display: flex;
+
                 svg {
                     height: 38vh;
+
                     rect {
                         fill: $w_codewars_red;
                     }
+
                     circle {
                         fill: $w_codewars_red;
                     }
                 }
+
                 .exp-wrapper {
                     .list-exp {
                         margin-bottom: 5vh;
@@ -256,22 +364,39 @@
 
         /* PROFILE SECTION */
         .profile-container {
-
             section {
                 display: flex;
                 justify-content: space-between;
                 margin: 2vh 0;
 
+                @include tabletOrPhone {
+                    justify-content: center;
+                    flex-direction: column;
+                }
+
                 .left {
                     display: flex;
                     flex-direction: column;
+
+                    @include tabletOrPhone {
+                        width: 100%;
+                    }
 
                     img#me {
                         width: 35vh;
                         height: 41vh;
                         border-right: 2vh solid $w_main_bg;
                         object-fit: cover;
+
                         // border-radius: .5vh;
+                        @include tabletOrPhone {
+                            width: 95%;
+                            border-right: 0;
+                            height: 50vh;
+                            margin: auto;
+                            object-fit: contain;
+                            margin-bottom: 1vh;
+                        }
                     }
                 }
 
@@ -281,6 +406,12 @@
                     padding: 2vh;
                     display: flex;
                     flex-direction: column;
+
+                    @include tabletOrPhone {
+                        width: 100%;
+                        text-align: center;
+                        padding: 2vh 0;
+                    }
 
                     label {
                         color: $w_white_color;
@@ -301,6 +432,10 @@
                         margin-top: 2vh;
                         display: flex;
 
+                        @include tabletOrPhone {
+                            justify-content: center;
+                        }
+
                         img {
                             margin-right: 1vh;
                             height: 3.5vh;
@@ -316,14 +451,76 @@
             width: 100%;
         }
 
+        .skill-container {
+            .slick-slider.slick-initialized {
+                @include desktop {
+                    display: none;
+                }
+
+                button.slick-arrow.slick-prev,
+                button.slick-arrow.slick-next {
+                    display: none;
+                }
+
+                .skill-box {
+                    width: 40vh;
+                    height: 20vh;
+                    background-color: $w_codewars_black;
+                    margin-bottom: 1.6vh;
+                    border-radius: .5vh;
+
+                    @include tabletOrPhone {
+                        justify-content: center;
+                        width: 100%;
+                        overflow: auto;
+                    }
+
+                    .cp {
+                        padding: 0 2vh;
+
+                        @include tabletOrPhone {
+                            text-align: center;
+                        }
+
+                        h5 {
+                            font-size: 2vh;
+                            color: $w_white_color;
+                        }
+
+                        .list-logo {
+                            display: flex;
+                            justify-content: center;
+
+                            img {
+                                width: 6vh;
+                                height: 6vh;
+                                margin-right: 2vh;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         #cp {
             display: flex;
             align-items: center;
+
+            @include tabletOrPhone {
+                flex-direction: column;
+                justify-content: center;
+            }
+
             p {
                 color: $w_codewars_red;
                 margin: 1vh 2vh 3vh 0;
                 font-weight: bold;
                 text-align: center;
+
+                @include tabletOrPhone {
+                    margin-bottom: 0;
+                }
             }
         }
     }
