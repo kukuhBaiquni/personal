@@ -5,6 +5,7 @@
 .home-container {
     background-color: $main_bg;
     overflow: hidden;
+
     nav {
         background-color: $codewars_black;
         border-bottom: .3vh solid $codewars_red;
@@ -18,6 +19,10 @@
         justify-content: space-between;
         align-items: center;
 
+        @include tabletOrPhone {
+            width: 100%;
+        }
+
         .list-section {
             display: flex;
             align-items: center;
@@ -29,6 +34,10 @@
                 font-weight: bold;
                 color: $codewars_red;
                 font-size: 1.8vh;
+
+                @include tabletOrPhone {
+                    display: none;
+                }
             }
 
             .active-indicator {
@@ -37,6 +46,10 @@
                 background-color: $codewars_red;
                 margin-right: 1vh;
                 transition: border-radius .25s, margin-top .25s;
+
+                @include tabletOrPhone {
+                    display: none;
+                }
             }
 
             &:hover {
@@ -63,24 +76,30 @@
             }
         }
     }
-    .forbidden {
-        background-color: $main_bg;
-        padding: 2vh;
-        height: 100vh;
-        overflow: hidden;
-        p {
-            color: $white_color;
-        }
-        @include desktop {
-            display: none;
-        }
-    }
+
+    // .forbidden {
+    //     background-color: $main_bg;
+    //     padding: 2vh;
+    //     height: 100vh;
+    //     overflow: hidden;
+    //     p {
+    //         color: $white_color;
+    //     }
+    //     @include desktop {
+    //         display: none;
+    //     }
+    // }
 
     .content-wrapper {
         padding: 15vh 20.1% 0;
+
+        // @include tabletOrPhone {
+        //     display: none;
+        // }
         @include tabletOrPhone {
-            display: none;
+            padding: 10vh 0;
         }
+
         .section-header {
             width: 100%;
             background-color: $codewars_black;
@@ -103,11 +122,21 @@
                 font-weight: bold;
                 font-size: 1.8vh;
                 margin-right: 2vh;
+
+                @include tabletOrPhone {
+                    display: none;
+                }
             }
 
             img {
                 margin-left: 1vh;
                 width: 40vh;
+
+                @include tabletOrPhone {
+                    margin: auto;
+                    width: 95%;
+                    height: 100%;
+                }
             }
         }
 
@@ -115,6 +144,7 @@
             width: 100%;
             background-color: $codewars_black;
             margin-bottom: 10vh;
+
             &:last-child {
                 margin-bottom: 3vh;
             }
@@ -152,6 +182,10 @@
                 justify-content: space-between;
                 flex-wrap: wrap;
 
+                @include tabletOrPhone {
+                    display: none;
+                }
+
                 .skill-box {
                     width: 40vh;
                     height: 20vh;
@@ -159,8 +193,18 @@
                     margin-bottom: 1.6vh;
                     border-radius: .5vh;
 
+                    @include tabletOrPhone {
+                        justify-content: center;
+                        width: 100%;
+                        overflow: auto;
+                    }
+
                     .cp {
                         padding: 0 2vh;
+
+                        @include tabletOrPhone {
+                            text-align: center;
+                        }
 
                         h5 {
                             font-size: 2vh;
@@ -205,6 +249,10 @@
                     img {
                         width: 5vh;
                         margin-bottom: 2vh;
+
+                        @include tabletOrPhone {
+                            width: 3.5vh;
+                        }
                     }
                 }
             }
@@ -212,12 +260,15 @@
             .exp-body {
                 padding: 5vh 2vh .5vh;
                 display: flex;
+
                 svg {
                     height: 38vh;
+
                     path {
                         fill: $codewars_red;
                     }
                 }
+
                 .exp-wrapper {
                     .list-exp {
                         margin-bottom: 5vh;
@@ -252,22 +303,38 @@
 
         /* PROFILE SECTION */
         .profile-container {
-
             section {
                 display: flex;
                 justify-content: space-between;
                 margin: 2vh 0;
 
+                @include tabletOrPhone {
+                    justify-content: center;
+                    flex-direction: column;
+                }
+
                 .left {
                     display: flex;
                     flex-direction: column;
+
+                    @include tabletOrPhone {
+                        width: 100%;
+                    }
 
                     img#me {
                         width: 35vh;
                         height: 41vh;
                         border-right: 2vh solid $main_bg;
                         object-fit: cover;
+
                         // border-radius: .5vh;
+                        @include tabletOrPhone {
+                            width: 95%;
+                            border-right: 0;
+                            height: 50vh;
+                            margin: auto;
+                            margin-bottom: 1vh;
+                        }
                     }
                 }
 
@@ -277,6 +344,12 @@
                     padding: 2vh;
                     display: flex;
                     flex-direction: column;
+
+                    @include tabletOrPhone {
+                        width: 100%;
+                        text-align: center;
+                        padding: 2vh 0;
+                    }
 
                     label {
                         color: $white_color;
@@ -297,6 +370,10 @@
                         margin-top: 2vh;
                         display: flex;
 
+                        @include tabletOrPhone {
+                            justify-content: center;
+                        }
+
                         img {
                             margin-right: 1vh;
                             height: 3.5vh;
@@ -315,11 +392,52 @@
         #cp {
             display: flex;
             align-items: center;
+
             p {
                 color: $codewars_red;
                 margin: 1vh 2vh 3vh 0;
                 font-weight: bold;
                 text-align: center;
+            }
+        }
+    }
+}
+
+.slick-slider {
+    .skill-box {
+        width: 40vh;
+        height: 20vh;
+        background-color: $codewars_black;
+        margin-bottom: 1.6vh;
+        border-radius: .5vh;
+
+        @include tabletOrPhone {
+            justify-content: center;
+            width: 100%;
+            overflow: auto;
+        }
+
+        .cp {
+            padding: 0 2vh;
+
+            @include tabletOrPhone {
+                text-align: center;
+            }
+
+            h5 {
+                font-size: 2vh;
+                color: $white_color;
+            }
+
+            .list-logo {
+                display: flex;
+                justify-content: center;
+                img {
+                    width: 6vh;
+                    height: 6vh;
+                    margin-right: 2vh;
+                    object-fit: cover;
+                }
             }
         }
     }

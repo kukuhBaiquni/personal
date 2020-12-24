@@ -4,6 +4,8 @@ import './index.css'
 import reportWebVitals from './reportWebVitals'
 import Home from './pages'
 import 'react-image-lightbox/style.css'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 ReactDOM.render(
   <React.StrictMode>

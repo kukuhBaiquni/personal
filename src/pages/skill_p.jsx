@@ -21,57 +21,64 @@ import CSS from 'assets/images/css.png'
 import SASS from 'assets/images/sass.png'
 import Bootstrap from 'assets/images/bootstrap.png'
 
-const Skill = ({skillRef}) => {
+import Slider from 'react-slick'
+
+const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+}
+
+const skills = [
+    { name: 'Programming Language', list: [Javascript, Python] },
+    { name: 'Project Management Tools', list: [Jira, Trello] },
+    { name: 'Version Control', list: [Github, Gitlab, Bitbucket] },
+    { name: 'Development Tools', list: [VScode, Atom] },
+    { name: 'System Operations', list: [Ubuntu, Windows] },
+    { name: 'Database Management', list: [Mongo, Postgres] }
+]
+
+const Skill = ({ skillRef }) => {
     return (
         <div ref={skillRef} className="skill-container">
             <div className="section-header">
                 <h4>SKILL AND COMPETENCES</h4>
             </div>
             <div className="section-body no-bg">
+                <Slider {...settings}>
+                    {
+                        skills.map(({ name, list }, index) => (
+                            <div key={index} className="skill-box">
+                                <div className="cp">
+                                    <h5>{name}</h5>
+                                    <div className="list-logo">
+                                        {
+                                            list.map((url, i) => (
+                                                <img key={i} title='Javascript' src={url} alt='javascript' />
+                                            ))
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </Slider>
                 <div className="flex-wrapper">
-                    <div className="skill-box">
-                        <div className="cp">
-                            <h5>Programming Language</h5>
-                            <img title='Javascript' src={Javascript} alt='javascript' />
-                            <img title='Python' src={Python} alt='python' />
-                        </div>
-                    </div>
-                    <div className="skill-box">
-                        <div className="cp">
-                            <h5>Project Management Tools</h5>
-                            <img title='Jira' style={{ height: '7vh', width: '7vh' }} src={Jira} alt='jira' />
-                            <img title='Trello' style={{ height: '8vh', width: '8vh' }} src={Trello} alt='trello' />
-                        </div>
-                    </div>
-                    <div className="skill-box">
-                        <div className="cp">
-                            <h5>Version Control</h5>
-                            <img title='Github' src={Github} alt='github' />
-                            <img title='Gitlab' src={Gitlab} alt='gitlab' />
-                            <img title='Bitbucket' src={Bitbucket} alt='bitbucket' />
-                        </div>
-                    </div>
-                    <div className="skill-box">
-                        <div className="cp">
-                            <h5>Development Tools</h5>
-                            <img title='Visual Studio Code' src={VScode} alt='vscode' />
-                            <img title='Atom' src={Atom} alt='atom' />
-                        </div>
-                    </div>
-                    <div className="skill-box">
-                        <div className="cp">
-                            <h5>System Operations</h5>
-                            <img title='Ubuntu' style={{ height: '8vh', width: '8vh' }} src={Ubuntu} alt='ubuntu' />
-                            <img title='Windows 10' style={{ height: '7vh', width: '7vh' }} src={Windows} alt='windows' />
-                        </div>
-                    </div>
-                    <div className="skill-box">
-                        <div className="cp">
-                            <h5>Database Management</h5>
-                            <img title='Mongo DB' style={{ height: '8vh', width: '8vh' }} src={Mongo} alt='mongo' />
-                            <img title='Postgres' style={{ height: '8vh', width: '15vh' }} src={Postgres} alt='postgres' />
-                        </div>
-                    </div>
+                    {
+                        skills.map(({ name, list }, index) => (
+                            <div key={index} className="skill-box">
+                                <div className="cp">
+                                    <h5>{name}</h5>
+                                    {
+                                        list.map((url, i) => (
+                                            <img key={i} title='Javascript' src={url} alt='javascript' />
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
             <div className="section-body">
