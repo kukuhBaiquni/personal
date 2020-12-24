@@ -1,17 +1,16 @@
 import { Fragment } from 'react'
 import Image from 'assets/images/me.jpg'
-import Facebook from 'assets/images/facebook.png'
-import LinkedIn from 'assets/images/linkedin.png'
-import Github from 'assets/images/github.png'
-import Codewars from 'assets/images/codewars.png'
-import FastFinger from 'assets/images/ff.png'
+
+import Facebook from 'assets/svg/facebook.svg'
+import Codewars from 'assets/svg/codewars.svg'
+import LinkedIn from 'assets/svg/linkedin.svg'
+import Github from 'assets/svg/github.svg'
 
 const codewarsBadge = 'https://www.codewars.com/users/kuniku/badges/large'
 const facebookUrl = 'https://web.facebook.com/kukuhbaiquni'
 const linkedInUrl = 'https://www.linkedin.com/in/kukuh-baiquni-a14580163/'
 const githubUrl = 'https://github.com/kukuhBaiquni'
 const codewarsUrl = 'https://www.codewars.com/users/kuniku'
-const fastFingerUrl = 'https://10fastfingers.com/user/2337934/'
 
 const data = {
     'Full Name': 'Kukuh Baiquni',
@@ -52,9 +51,6 @@ const Profile = () => {
                         </a>
                         <a href={codewarsUrl} title='codewars.com' target='_blank'>
                             <img src={Codewars} alt='codewars' />
-                        </a>
-                        <a href={fastFingerUrl} title='10fastfingers.com' target='_blank'>
-                            <img src={FastFinger} alt='fast-fingers' />
                         </a>
                     </div>
                 </div>

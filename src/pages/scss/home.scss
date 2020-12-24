@@ -168,19 +168,29 @@
 
                 img {
                     width: 8vh;
-                    height: 8vh;
-                    margin-right: 2vh;
+                    height: 100%;
+                    margin-right: 5vh;
                     object-fit: cover;
-                    margin-bottom: 2vh;
-                    @include tabletOrPhone {
+                    margin-bottom: 3vh;
+                    &:nth-child(4) {
+                        width: 12vh;
+                        height: 8vh;
+                    }
+                    &:nth-last-child(2) {
+                        width: 5.7vh;
+                        height: 8vh;
+                    }
+                    &:last-child {
+                        height: 8vh;
+                        width: 5vh;
                     }
                 }
 
                 .list {
                     display: flex;
-                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    justify-content: center;
                     @include tabletOrPhone {
-                        flex-wrap: wrap;
                     }
                 }
             }
@@ -219,7 +229,7 @@
 
             .flex-wrapper {
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
                 flex-wrap: wrap;
 
                 @include tabletOrPhone {
@@ -230,9 +240,8 @@
                     width: 40vh;
                     height: 20vh;
                     background-color: $codewars_black;
-                    margin-bottom: 1.6vh;
                     border-radius: .5vh;
-
+                    margin: 0 .5vh 1.6vh;
                     @include tabletOrPhone {
                         justify-content: center;
                         width: 100%;

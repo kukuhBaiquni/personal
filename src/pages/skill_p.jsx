@@ -1,25 +1,36 @@
-import Python from 'assets/images/python.png'
-import Javascript from 'assets/images/js.png'
-import Github from 'assets/images/github.png'
-import Gitlab from 'assets/images/gitlab.png'
-import Bitbucket from 'assets/images/bitbucket.png'
-import Trello from 'assets/images/trello.png'
-import Jira from 'assets/images/jira.png'
-import VScode from 'assets/images/vscode.png'
-import Atom from 'assets/images/atom.png'
-import Windows from 'assets/images/windows.png'
-import Ubuntu from 'assets/images/ubuntu.png'
-import Mongo from 'assets/images/mongo.png'
-import Postgres from 'assets/images/postgres.png'
-import React from 'assets/images/react.png'
-import Redux from 'assets/images/redux.png'
-import ReduxSaga from 'assets/images/redux-saga.png'
-import NodeJS from 'assets/images/node.png'
-import JQuery from 'assets/images/jquery.png'
-import HTML from 'assets/images/html.png'
-import CSS from 'assets/images/css.png'
-import SASS from 'assets/images/sass.png'
-import Bootstrap from 'assets/images/bootstrap.png'
+import Python from 'assets/svg/python.svg'
+import Javascript from 'assets/svg/javascript.svg'
+import Github from 'assets/svg/github.svg'
+import Gitlab from 'assets/svg/gitlab.svg'
+import Bitbucket from 'assets/svg/bitbucket.svg'
+import Trello from 'assets/svg/trello.svg'
+import Jira from 'assets/svg/jira.svg'
+import VScode from 'assets/svg/vscode.svg'
+import Atom from 'assets/svg/atom.svg'
+import Windows from 'assets/svg/windows.svg'
+import Ubuntu from 'assets/svg/ubuntu.svg'
+import Mongo from 'assets/svg/mongodb.svg'
+import Postgres from 'assets/svg/psg.svg'
+import React from 'assets/svg/react.svg'
+import Redux from 'assets/svg/redux.svg'
+import ReduxSaga from 'assets/svg/saga.svg'
+import NodeJS from 'assets/svg/node.svg'
+import JQuery from 'assets/svg/jquery.svg'
+import HTML from 'assets/svg/html.svg'
+import CSS from 'assets/svg/css.svg'
+import SASS from 'assets/svg/sass.svg'
+import Bootstrap from 'assets/svg/bootstrap.svg'
+
+import Chai from 'assets/svg/chai.svg'
+import Express from 'assets/svg/express.svg'
+import Figma from 'assets/svg/figma.svg'
+import Firebase from 'assets/svg/firebase.svg'
+import Heroku from 'assets/svg/heroku.svg'
+import Mocha from 'assets/svg/mocha.svg'
+import Postman from 'assets/svg/postman.svg'
+import Socket from 'assets/svg/socket.svg'
+import Puppeteer from 'assets/svg/ppt.svg'
+
 import { ReactComponent as Chevron } from 'assets/images/chevron.svg'
 
 import Slider from 'react-slick'
@@ -34,12 +45,32 @@ const settings = {
 }
 
 const skills = [
-    { name: 'Programming Language', list: [Javascript, Python] },
-    { name: 'Project Management Tools', list: [Jira, Trello] },
-    { name: 'Version Control', list: [Github, Gitlab, Bitbucket] },
-    { name: 'Development Tools', list: [VScode, Atom] },
-    { name: 'System Operations', list: [Ubuntu, Windows] },
-    { name: 'Database Management', list: [Mongo, Postgres] }
+    { name: 'Programming Language', list: [{ url: Javascript, title: 'Javascript' }, { url: Python, title: 'Python' }] },
+    { name: 'Project Management Tools', list: [{ url: Jira, title: 'Jira' }, { url: Trello, title: 'Trello' }] },
+    { name: 'Version Control', list: [{ url: Github, title: 'Gitlab' }, { url: Gitlab, title: 'Gitlab' }, { url: Bitbucket, title: 'Bitbucket' }] },
+    { name: 'Development Tools', list: [{ url: VScode, title: 'Visual Studio' }, { url: Atom, title: 'Atom' }] },
+    { name: 'System Operations', list: [{ url: Ubuntu, title: 'Ubuntu' }, { url: Windows, title: 'Windows 10' }] },
+    { name: 'Database Management', list: [{ url: Mongo, title: 'MongoDB' }, { url: Postgres, title: 'PostgreSQL' }] }
+]
+
+const frameworks = [
+    { title: 'NodeJS', url: NodeJS },
+    { title: 'ReactJS & React Native', url: React },
+    { title: 'Redux', url: Redux },
+    { title: 'Redux Saga', url: ReduxSaga },
+    { title: 'ExpressJS', url: Express },
+    { title: 'JQuery', url: JQuery },
+    { title: 'HTML 5', url: HTML },
+    { title: 'CSS 3', url: CSS },
+    { title: 'SASS', url: SASS },
+    { title: 'Bootstrap', url: Bootstrap },
+    { title: 'ChaiJS', url: Chai },
+    { title: 'MochaJS', url: Mocha },
+    { title: 'Socket.io', url: Socket },
+    { title: 'Postman', url: Postman },
+    { title: 'Heroku', url: Heroku },
+    { title: 'Firebase', url: Firebase },
+    { title: 'Puppeteer', url: Puppeteer },
 ]
 
 const Skill = ({ skillRef }) => {
@@ -60,8 +91,8 @@ const Skill = ({ skillRef }) => {
                                     <h5>{name}</h5>
                                     <div className="list-logo">
                                         {
-                                            list.map((url, i) => (
-                                                <img key={i} title='Javascript' src={url} alt='javascript' />
+                                            list.map(({ url, title }, i) => (
+                                                <img key={i} title={title} src={url} alt={title} />
                                             ))
                                         }
                                     </div>
@@ -80,11 +111,13 @@ const Skill = ({ skillRef }) => {
                             <div key={index} className="skill-box">
                                 <div className="cp">
                                     <h5>{name}</h5>
-                                    {
-                                        list.map((url, i) => (
-                                            <img key={i} title='Javascript' src={url} alt='javascript' />
-                                        ))
-                                    }
+                                    <div className="list-logo">
+                                        {
+                                            list.map(({ url, title }, i) => (
+                                                <img key={i} title={title} src={url} alt={title} />
+                                            ))
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         ))
@@ -93,17 +126,13 @@ const Skill = ({ skillRef }) => {
             </div>
             <div className="section-body">
                 <div className="padder">
-                    <h5>Others Technology</h5>                    
+                    <h5>Others Technology</h5>
                     <div className="list">
-                        <img title='NodeJS & ExpressJS' src={NodeJS} alt='node' />
-                        <img title='Redux' style={{ width: '6.5vh', height: '6vh' }} src={Redux} alt='redux' />
-                        <img title='ReactJS & React Native' src={React} alt='react' />
-                        <img title='Redux Saga' style={{ width: '13vh' }} src={ReduxSaga} alt='redux-saga' />
-                        <img title='JQuery' style={{ width: '7vh' }} src={JQuery} alt='jquery' />
-                        <img title='HTML 5' src={HTML} alt='html' />
-                        <img title='CSS 3' src={CSS} alt='css' />
-                        <img title='SASS' style={{ width: '11vh' }} src={SASS} alt='sass' />
-                        <img title='Bootstrap' src={Bootstrap} alt='node' />
+                        {
+                            frameworks.map(({ title, url }, index) => (
+                                <img title={title} src={url} alt={title} />
+                            ))
+                        }
                     </div>
                 </div>
             </div>
