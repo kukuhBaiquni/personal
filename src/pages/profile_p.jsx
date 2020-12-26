@@ -49,9 +49,7 @@ const PhotoPart = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    ${({ theme }) => theme.desktop`
-        width: 37vh;
-    `}
+    ${({ theme }) => theme.desktop`width: 37vh;`}
     img#me {
         width: 95%;
         border-right: 0;
@@ -100,9 +98,7 @@ const SocialMedia = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: row;
-    ${({ theme }) => theme.desktop`
-        justify-content: flex-start;
-    `}
+    ${({ theme }) => theme.desktop`justify-content:flex-start;`}
     img {
         margin-right: 1vh;
         height: 3.5vh;

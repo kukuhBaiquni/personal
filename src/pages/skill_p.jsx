@@ -33,11 +33,7 @@ import Postman from 'assets/svg/postman.svg'
 import Socket from 'assets/svg/socket.svg'
 import Puppeteer from 'assets/svg/ppt.svg'
 
-import { ReactComponent as Chevron } from 'assets/images/chevron.svg'
-
 import Slider from 'react-slick'
-import { useRef } from 'react'
-
 
 const settings = {
     infinite: true,
@@ -77,10 +73,8 @@ const frameworks = [
 
 const SkillSection = styled.section`
     margin-bottom: 10vh;
-    & .slick-slider.slick-initialized {
-        ${({ theme }) => theme.desktop`
-            display: none
-        `}
+    .slick-slider.slick-initialized {
+        ${({ theme }) => theme.desktop`display:none`}
         & button.slick-arrow.slick-prev,
         & button.slick-arrow.slick-next {
             display: none;
@@ -92,11 +86,11 @@ const SkillBoxPhone = styled(BasicBox)`
     width: 100%;
     height: 20vh;
     margin-bottom: 1.6vh;
-    border-radius: .5vh;
     text-align: center;
-    & h5 {
-            font-size: 2vh;
-            color: ${({ theme }) => theme.fontNormal};
+    position: relative;
+    h5 {
+        font-size: 2vh;
+        color: ${({ theme }) => theme.fontNormal};
     }
     .list-logo {
         display: flex;
@@ -110,16 +104,61 @@ const SkillBoxPhone = styled(BasicBox)`
     }
 `
 
-const Skill = ({ skillRef }) => {
+const SkillDesktopView = styled.div`
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: none;
+    ${({ theme }) => theme.desktop`display:flex`}
+`
+const SkillBoxDesktop = styled(BasicBox)`
+    width: 40vh;
+    height: 20vh;
+    border-radius: .5vh;
+    margin-bottom: 1.6vh;
+    .cp {
+        padding: 0 2vh;
+        text-align: center;
+    }
+    h5 {
+        font-size: 2vh;
+        color: ${({ theme }) => theme.fontNormal}
+    }
+    img {
+        width: 6vh;
+        height: 6vh;
+        margin-right: 2vh;
+        object-fit: cover;
+    }
+`
 
-    const baseSkill = useRef()
+const Frameworks = styled(BasicBox)`
+    padding: 2vh;
+    h5 {
+        font-size: 2vh;
+        color: ${({ theme }) => theme.font};
+        margin-top: 0;
+        text-align: center;
+    }
+    .framework-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        img {
+            height: 8vh;
+            margin-bottom: 3vh;
+            padding: 1vh;
+        }
+    }
+`
+
+const Skill = ({ skillRef }) => {
 
     return (
         <SkillSection ref={skillRef} >
             <SectionHeader>
                 <h4>SKILL AND COMPETENCES</h4>
             </SectionHeader>
-            <Slider ref={baseSkill} {...settings}>
+            <Slider {...settings}>
                 {
                     skills.map(({ name, list }, index) => (
                         <SkillBoxPhone key={index}>
@@ -136,15 +175,10 @@ const Skill = ({ skillRef }) => {
                 }
             </Slider>
             <div className="section-body no-bg">
-
-                <div className="arrow-slider">
-                    <Chevron onClick={() => baseSkill.current.slickPrev()} />
-                    <Chevron onClick={() => baseSkill.current.slickNext()} />
-                </div>
-                <div className="flex-wrapper">
+                <SkillDesktopView>
                     {
                         skills.map(({ name, list }, index) => (
-                            <div key={index} className="skill-box">
+                            <SkillBoxDesktop key={index}>
                                 <div className="cp">
                                     <h5>{name}</h5>
                                     <div className="list-logo">
@@ -155,23 +189,21 @@ const Skill = ({ skillRef }) => {
                                         }
                                     </div>
                                 </div>
-                            </div>
+                            </SkillBoxDesktop>
+                        ))
+                    }
+                </SkillDesktopView>
+            </div>
+            <Frameworks>
+                <h5>Others Technology</h5>
+                <div className="framework-list">
+                    {
+                        frameworks.map(({ title, url }, index) => (
+                            <img key={index} title={title} src={url} alt={title} />
                         ))
                     }
                 </div>
-            </div>
-            <div className="section-body">
-                <div className="padder">
-                    <h5>Others Technology</h5>
-                    <div className="list">
-                        {
-                            frameworks.map(({ title, url }, index) => (
-                                <img key={index} title={title} src={url} alt={title} />
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
+            </Frameworks>
         </SkillSection>
     )
 }

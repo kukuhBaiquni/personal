@@ -22,9 +22,7 @@ const Wrapper = styled.div`
 
 const ContentWrapper = styled.div`
     padding: 10vh 0;
-    ${({ theme}) => theme.desktop`
-        padding: 15vh 20.1% 0;
-    `}
+    ${({ theme}) => theme.desktop`padding:15vh 20.1% 0;`}
 `
 
 const Home = () => {
