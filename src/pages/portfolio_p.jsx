@@ -109,7 +109,7 @@ const Portfolio = ({ portfolioRef }) => {
                                 <div className="stack-list">
                                     {
                                         stack.map(({ url, title }, i) => (
-                                            <img title={title} src={url} alt={title} />
+                                            <img key={i} title={title} src={url} alt={title} />
                                         ))
                                     }
                                 </div>

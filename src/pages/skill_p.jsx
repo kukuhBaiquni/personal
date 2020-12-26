@@ -130,7 +130,7 @@ const Skill = ({ skillRef }) => {
                     <div className="list">
                         {
                             frameworks.map(({ title, url }, index) => (
-                                <img title={title} src={url} alt={title} />
+                                <img key={index} title={title} src={url} alt={title} />
                             ))
                         }
                     </div>

@@ -17,6 +17,13 @@ import { ReactComponent as PortfolioIcon } from 'assets/icon/portfolio.svg'
 import { ReactComponent as ContactIcon } from 'assets/icon/contact.svg'
 import { ReactComponent as SkillIcon } from 'assets/icon/skill.svg'
 
+import styled from 'styled-components'
+
+const Test = styled.div`
+    color: red;
+    background-color: ${c => console.log(c)};
+`
+
 const Home = () => {
     
     const [dark, setDark] = useState(false)
@@ -47,6 +54,7 @@ const Home = () => {
 
     return (
         <div className={dark ? 'home-container' : 'w-home-container'}>
+            <Test />
             <h1 style={{display: 'none'}}>Kukuh Baiquni</h1>
             <div className="content-wrapper">
                 <nav>
