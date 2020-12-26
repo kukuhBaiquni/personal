@@ -91,8 +91,6 @@ const Home = () => {
     return (
         <ThemeProvider theme={theme}>
             <Wrapper>
-                <Test />
-                {/* <h1 style={{ display: 'none' }}>Kukuh Baiquni</h1> */}
                 <ContentWrapper>
                     <Navbar
                         scrollToTop={scrollToTop}
