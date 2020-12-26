@@ -6,14 +6,10 @@ import Home from './pages'
 import 'react-image-lightbox/style.css'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import Theme from './theme'
-import { ThemeProvider } from 'styled-components'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={Theme}>
       <Home />
-    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

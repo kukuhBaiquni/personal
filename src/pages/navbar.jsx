@@ -12,57 +12,116 @@ import { ReactComponent as SkillIcon } from 'assets/icon/skill.svg'
 import Sun from 'assets/images/sun.png'
 import Moon from 'assets/images/moon.png'
 
-const Pw = styled.nav`
-    color: ${r => console.log('rrrr', r)};
+
+const NavbarContainer = styled.nav`
+    z-index: 100;
+    background-color: ${({ theme }) => theme.block};
+    border-bottom: .3vh solid ${({ theme }) => theme.font};
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ${({ theme }) => theme.desktop`
+            width: 60%;
+        `
+    }
 `
 
+
+const SectionList = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 0 2vh;
+    cursor: pointer;
+    ${({ theme }) => console.log(theme.desktop`display:none`)}
+    & svg {
+        & path {
+            fill: ${({ theme }) => theme.font}
+        }
+        ${({ theme }) => theme.desktop`
+            display: none;
+        `}
+    }
+    & p {
+        transition: color .25s, margin-top .25s;
+        font-weight: bold;
+        color: ${({ theme }) => theme.font};
+        font-size: 1.5vh;
+        display: none;
+        ${({theme}) => theme.desktop`
+            display: flex;
+        `}
+    }
+    & .active-indicator {
+        width: 1.5vh;
+        height: 1.5vh;
+        background-color: ${({theme}) => theme.font};
+        margin-right: 1vh;
+        transition: border-radius .25s, margin-top .25s;
+        display: none;
+        ${({theme}) => theme.desktop`
+            display: flex;
+        `}
+    }
+    &:hover {
+        p {
+            color: ${({theme}) => theme.hover};
+        }
+        .active-indicator {
+            background-color: ${({theme}) => theme.hover};
+            border-radius: 50%;
+        }
+    }
+`
+
+// const PhoneSvg = styled.svg`
+//     width: 3vh;
+//     height: 3vh;
+//     & path {
+//         fill: 
+//     }
+// `
+
 const Navbar = ({
-    scrollToTop, 
-    scrollToAbout, 
-    scrollToSkill, 
-    scrollToExperience, 
-    scrollToPortfolio, 
-    scrollToBottom, 
-    changeTheme, 
-    dark
+    scrollToTop,
+    scrollToAbout,
+    scrollToSkill,
+    scrollToExperience,
+    scrollToPortfolio,
+    scrollToBottom,
+    changeTheme,
+    isDark
 }) => {
+
+    const Section = [
+        { name: 'PROFILE', icon: <UserIcon />, anchor: scrollToTop },
+        { name: 'ABOUT ME', icon: <AboutIcon />, anchor: scrollToAbout },
+        { name: 'SKILL AND COMPETENCES', icon: <SkillIcon />, anchor: scrollToSkill },
+        { name: 'EXPERIENCE', icon: <ExperienceIcon />, anchor: scrollToExperience },
+        { name: 'PORTFOLIO', icon: <PortfolioIcon />, anchor: scrollToPortfolio },
+        { name: 'CONTACT ME', icon: <ContactIcon />, anchor: scrollToBottom }
+    ]
+
     return (
-        <nav>
-            <Pw />
-            <div onClick={scrollToTop} className="list-section">
-                <UserIcon />
-                <div className='active-indicator' />
-                <p>PROFILE</p>
-            </div>
-            <div onClick={scrollToAbout} className="list-section">
-                <AboutIcon />
-                <div className='active-indicator' />
-                <p>ABOUT ME</p>
-            </div>
-            <div onClick={scrollToSkill} className="list-section">
-                <SkillIcon />
-                <div className='active-indicator' />
-                <p>SKILL AND COMPETENCES</p>
-            </div>
-            <div onClick={scrollToExperience} className="list-section">
-                <ExperienceIcon />
-                <div className='active-indicator' />
-                <p>EXPERIENCE</p>
-            </div>
-            <div onClick={scrollToPortfolio} className="list-section">
-                <PortfolioIcon />
-                <div className='active-indicator' />
-                <p>PORTFOLIO</p>
-            </div>
-            <div onClick={scrollToBottom} className="list-section">
-                <ContactIcon />
-                <div className='active-indicator' />
-                <p>CONTACT ME</p>
-            </div>
+        <NavbarContainer>
+            {
+                Section.map(({name, icon, anchor}, index) => (
+                    <SectionList key={index} onClick={anchor}>
+                        {icon}
+                        <div className="active-indicator" />
+                        <p>{name}</p>
+                    </SectionList>
+                ))
+            }
             <div className="list-section">
                 <Switch
                     onChange={changeTheme}
-                    checked={dark}
+                    checked={isDark}
                     onHandleColor='#bababa'
                     offHandleColor='#bababa'
                     offColor='#434343'
@@ -79,7 +138,7 @@ const Navbar = ({
                     }
                 />
             </div>
-        </nav>
+        </NavbarContainer>
     )
 }
 

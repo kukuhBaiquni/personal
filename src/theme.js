@@ -22,13 +22,13 @@ export default Object.assign({}, Theme, {
         ...Theme.dark,
         desktop: args => css`
             @media only screen and (min-width: 992px) {
-                ${css(...args)}
+                ${css(args)}
             }
         `,
         tabletAndPhone: args => css`
             @media only screen and (max-width: 991px) and (min-width: 768px),
                 (max-width: 767px) {
-                ${css(...args)}
+                ${css(args)}
             }
         `,
     },
@@ -36,13 +36,13 @@ export default Object.assign({}, Theme, {
         ...Theme.light,
         desktop: args => css`
             @media only screen and (min-width: 992px) {
-                ${css(...args)}
+                ${css(args)}
             }
         `,
         tabletAndPhone: args => css`
             @media only screen and (max-width: 991px) and (min-width: 768px),
                 (max-width: 767px) {
-                ${css(...args)}
+                ${css(args)}
             }
         `,
     },
