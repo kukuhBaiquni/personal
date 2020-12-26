@@ -46,7 +46,7 @@
                 transition: color .25s, margin-top .25s;
                 font-weight: bold;
                 color: $w_codewars_red;
-                font-size: 1.8vh;
+                font-size: 1.5vh;
 
                 @include tabletOrPhone {
                     display: none;
@@ -180,10 +180,10 @@
 
                 img {
                     height: 8vh;
-                    margin-right: 5vh;
                     margin-bottom: 3vh;
+                    padding: 1vh;
                 }
-
+                
                 .list {
                     display: flex;
                     flex-wrap: wrap;
@@ -235,7 +235,7 @@
                 }
 
                 .skill-box {
-                    width: 40vh;
+                    width: 38vh;
                     height: 20vh;
                     background-color: $w_codewars_black;
                     border-radius: .5vh;
@@ -384,7 +384,7 @@
 
                     img#me {
                         width: 35vh;
-                        height: 41vh;
+                        height: 45vh;
                         border-right: 2vh solid $w_main_bg;
                         object-fit: cover;
 
