@@ -40,7 +40,10 @@ const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    swipeToSlide: false
 }
 
 const skills = [
@@ -113,7 +116,7 @@ const SkillDesktopView = styled.div`
     ${({ theme }) => theme.desktop`display:flex`}
 `
 const SkillBoxDesktop = styled(BasicBox)`
-    width: 40vh;
+    width: 38vh;
     height: 20vh;
     border-radius: .5vh;
     margin-bottom: 1.6vh;

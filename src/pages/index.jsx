@@ -13,10 +13,6 @@ import Experience from './experience_p'
 import Navbar from './navbar'
 import Theme from '../theme'
 
-const Test = styled.div`
-    background-color: ${c => console.log('log basic', c)};
-`
-
 const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.bg};
     overflow: hidden;

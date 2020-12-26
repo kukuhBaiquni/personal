@@ -91,9 +91,6 @@ const BioPart = styled.div`
     p {
         color: ${({ theme }) => theme.fontNormal}
     }
-    .force-bottom {
-        ${({ theme }) => theme.desktop`margin-top:3.5vh`}
-    }
 `
 
 const SocialMedia = styled.div`
@@ -101,11 +98,13 @@ const SocialMedia = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: row;
+    height: 100%;
+    align-items: flex-end;
     ${({ theme }) => theme.desktop`justify-content:flex-start;`}
     img {
         margin-right: 1vh;
-        height: 3.5vh;
-        width: 3.5vh;
+        height: 3vh;
+        width: 3vh;
     }
 `
 
@@ -129,18 +128,15 @@ const Profile = () => {
                             </Fragment>
                         ))
                     }
-                    <div className="force-bottom">
-                        <label>Other Profile</label>
-                        <SocialMedia >
-                            {
-                                socMed.map(({ icon, name, title }, index) => (
-                                    <a key={index} href={name} title={title} target='_blank'>
-                                        <img src={icon} alt='title' />
-                                    </a>
-                                ))
-                            }
-                        </SocialMedia>
-                    </div>
+                    <SocialMedia >
+                        {
+                            socMed.map(({ icon, name, title }, index) => (
+                                <a key={index} href={name} title={title} target='_blank'>
+                                    <img src={icon} alt='title' />
+                                </a>
+                            ))
+                        }
+                    </SocialMedia>
                 </BioPart>
             </ProfilePart>
             <SectionHeader>
