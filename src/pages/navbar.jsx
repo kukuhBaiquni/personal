@@ -33,12 +33,11 @@ const NavbarContainer = styled.nav`
 `
 
 
-const SectionList = styled.div`
+const AnchorList = styled.div`
     display: flex;
     align-items: center;
     padding: 0 2vh;
     cursor: pointer;
-    ${({ theme }) => console.log(theme.desktop`display:none`)}
     & svg {
         & path {
             fill: ${({ theme }) => theme.font}
@@ -79,13 +78,17 @@ const SectionList = styled.div`
     }
 `
 
-// const PhoneSvg = styled.svg`
-//     width: 3vh;
-//     height: 3vh;
-//     & path {
-//         fill: 
-//     }
-// `
+const SwitchIcon = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    & img {
+        height: 2.5vh;
+        width: 2.5vh;
+    }
+`
 
 const Navbar = ({
     scrollToTop,
@@ -111,14 +114,14 @@ const Navbar = ({
         <NavbarContainer>
             {
                 Section.map(({name, icon, anchor}, index) => (
-                    <SectionList key={index} onClick={anchor}>
+                    <AnchorList key={index} onClick={anchor}>
                         {icon}
                         <div className="active-indicator" />
                         <p>{name}</p>
-                    </SectionList>
+                    </AnchorList>
                 ))
             }
-            <div className="list-section">
+            <AnchorList>
                 <Switch
                     onChange={changeTheme}
                     checked={isDark}
@@ -127,17 +130,17 @@ const Navbar = ({
                     offColor='#434343'
                     onColor='#434343'
                     uncheckedIcon={
-                        <div className='switch-icon'>
+                        <SwitchIcon>
                             <img src={Sun} alt='sun' />
-                        </div>
+                        </SwitchIcon>
                     }
                     checkedIcon={
-                        <div className='switch-icon'>
+                        <SwitchIcon>
                             <img src={Moon} alt='moon' />
-                        </div>
+                        </SwitchIcon>
                     }
                 />
-            </div>
+            </AnchorList>
         </NavbarContainer>
     )
 }
