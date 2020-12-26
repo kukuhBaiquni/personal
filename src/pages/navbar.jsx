@@ -12,12 +12,11 @@ import { ReactComponent as SkillIcon } from 'assets/icon/skill.svg'
 import Sun from 'assets/images/sun.png'
 import Moon from 'assets/images/moon.png'
 
+import { BasicBox } from '../components'
 
-const NavbarContainer = styled.nav`
+const NavbarContainer = styled(BasicBox)`
     z-index: 100;
-    background-color: ${({ theme }) => theme.block};
     border-bottom: .3vh solid ${({ theme }) => theme.font};
-    width: 100%;
     height: 10vh;
     position: fixed;
     left: 50%;
@@ -39,6 +38,8 @@ const AnchorList = styled.div`
     padding: 0 2vh;
     cursor: pointer;
     & svg {
+        width: 3vh;
+        height: 3vh;
         & path {
             fill: ${({ theme }) => theme.font}
         }
@@ -111,7 +112,7 @@ const Navbar = ({
     ]
 
     return (
-        <NavbarContainer>
+        <NavbarContainer as='nav'>
             {
                 Section.map(({name, icon, anchor}, index) => (
                     <AnchorList key={index} onClick={anchor}>

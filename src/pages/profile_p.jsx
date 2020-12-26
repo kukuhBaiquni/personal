@@ -1,4 +1,7 @@
 import { Fragment } from 'react'
+import styled from 'styled-components'
+import { BasicBox, SectionHeader } from '../components'
+
 import Image from 'assets/images/me.jpg'
 
 import Facebook from 'assets/svg/facebook.svg'
@@ -19,20 +22,86 @@ const data = {
     'Address': 'Bandung, Indonesia'
 }
 
+const ProfileSection = styled.div`
+    margin: 2vh 0;
+    width: 100%;
+`
+
+const ProfilePart = styled.div`
+    margin: 2vh 0;
+    justify-content: center;
+    flex-direction: column;
+    ${({ theme }) => theme.desktop`
+        display: flex;
+        justify-content: space-between;
+    `}
+`
+
+const PhotoPart = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    ${({ theme }) => theme.desktop`
+        width: 37vh;
+        background-color: pink;
+    `}
+    & img#me {
+        width: 95%;
+        border-right: 0;
+        height: 50vh;
+        margin: auto;
+        object-fit: contain;
+        margin-bottom: 1vh;
+        ${({ theme }) => theme.desktop`
+            width: 35vh;
+            height: 45vh;
+            border-right: 2vh solid transparent;
+            object-fit: cover;
+            margin-bottom: 0;
+        `}
+    }
+`
+
+const BioPart = styled.div`
+    background-color: ${({ theme }) => theme.block};
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 2vh 0;
+    ${({ theme }) => theme.desktop`
+        width: 84%;
+        padding: 2vh;
+        text-align: left;
+    `}
+    & label {
+        color: ${({ theme }) => theme.fontNormal};
+        font-size: 2vh;
+    }
+    & span {
+        color: ${({ theme }) => theme.font};
+        font-size: 2.5vh;
+        margin-bottom: 2vh;
+    }
+    & p {
+        color: ${({ theme }) => theme.fontNormal}
+    }
+`
+
 const Profile = () => {
     return (
-        <div className='profile-container'>
-            <div className="section-header">
+        <ProfileSection>
+            <SectionHeader>
                 <h4>MY PROFILE</h4>
-            </div>
-            <section className='profile-section'>
-                <div className="left">
+            </SectionHeader>
+            <ProfilePart>
+                <PhotoPart>
                     <img id='me' src={Image} alt='me' />
-                </div>
-                <div className="right">
+                </PhotoPart>
+                <BioPart>
                     {
-                        Object.entries(data).map(([prop, value]) => (
-                            <Fragment key={value}>
+                        Object.entries(data).map(([prop, value], index) => (
+                            <Fragment key={index}>
                                 <label>{prop}</label>
                                 <span>{value}</span>
                             </Fragment>
@@ -53,13 +122,13 @@ const Profile = () => {
                             <img src={Codewars} alt='codewars' />
                         </a>
                     </div>
-                </div>
-            </section>
+                </BioPart>
+            </ProfilePart>
             <div className="section-header">
                 <img id='codewars' src={codewarsBadge} alt='codewars' />
                 <a href="https://codewars.com" target="_blank" rel="noopener noreferrer">Join Codewars</a>
             </div>
-        </div>
+        </ProfileSection>
     )
 }
 
