@@ -60,7 +60,7 @@ const Home = () => {
         <ThemeProvider theme={theme}>
             <Wrapper>
                 <Test />
-                <h1 style={{ display: 'none' }}>Kukuh Baiquni</h1>
+                {/* <h1 style={{ display: 'none' }}>Kukuh Baiquni</h1> */}
                 <ContentWrapper>
                     <Navbar
                         scrollToTop={scrollToTop}
@@ -77,11 +77,11 @@ const Home = () => {
                     <Skill skillRef={skillRef} />
                     <Experience experienceRef={experienceRef} />
                     <Portfolio portfolioRef={portfolioRef} />
-                    <div ref={bottomRef} id="cp">
+                    {/* <div ref={bottomRef} id="cp">
                         <p id='cp'>Email: kukuh.baiquni@gmail.com</p>
                         <p id='cp'>Kukuh Baiquni © 2020</p>
                         <p id='cp'>Mobile: +62 821 1903 0614</p>
-                    </div>
+                    </div> */}
                 </ContentWrapper>
             </Wrapper>
         </ThemeProvider>

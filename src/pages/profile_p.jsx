@@ -91,6 +91,9 @@ const BioPart = styled.div`
     p {
         color: ${({ theme }) => theme.fontNormal}
     }
+    .force-bottom {
+        ${({ theme }) => theme.desktop`margin-top:4vh`}
+    }
 `
 
 const SocialMedia = styled.div`
@@ -126,16 +129,18 @@ const Profile = () => {
                             </Fragment>
                         ))
                     }
-                    <label>Other Profile</label>
-                    <SocialMedia >
-                        {
-                            socMed.map(({ icon, name, title }, index) => (
-                                <a key={index} href={name} title={title} target='_blank'>
-                                    <img src={icon} alt='title' />
-                                </a>
-                            ))
-                        }
-                    </SocialMedia>
+                    <div className="force-bottom">
+                        <label>Other Profile</label>
+                        <SocialMedia >
+                            {
+                                socMed.map(({ icon, name, title }, index) => (
+                                    <a key={index} href={name} title={title} target='_blank'>
+                                        <img src={icon} alt='title' />
+                                    </a>
+                                ))
+                            }
+                        </SocialMedia>
+                    </div>
                 </BioPart>
             </ProfilePart>
             <SectionHeader>
