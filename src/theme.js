@@ -1,19 +1,19 @@
-import { css } from "styled-components"
+import { css } from 'styled-components'
 
 const Theme = {
     dark: {
-        block: "#303133",
-        font: "#AAA1CA",
-        hover: "#765AD8",
-        bg: "#434343",
-        fontNormal: "#BABABA",
+        block: '#303133',
+        font: '#AAA1CA',
+        hover: '#765AD8',
+        bg: '#434343',
+        fontNormal: '#BABABA',
     },
     light: {
-        block: "#D1D5DA",
-        font: "#406094",
-        hover: "#765AD8",
-        bg: "#f0f0f0",
-        fontNormal: "#575757",
+        block: '#D1D5DA',
+        font: '#406094',
+        hover: '#765AD8',
+        bg: '#f0f0f0',
+        fontNormal: '#575757',
     },
 }
 
