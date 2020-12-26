@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/personal/static/css/main.0875c700.chunk.css",
-    "main.js": "/personal/static/js/main.30b4fa88.chunk.js",
-    "runtime-main.js": "/personal/static/js/runtime-main.57921d2a.js",
+    "main.js": "/personal/static/js/main.869abb8f.chunk.js",
+    "runtime-main.js": "/personal/static/js/runtime-main.25873910.js",
     "static/css/2.2fd1ed5f.chunk.css": "/personal/static/css/2.2fd1ed5f.chunk.css",
-    "static/js/2.fe14af88.chunk.js": "/personal/static/js/2.fe14af88.chunk.js",
-    "static/js/3.fcaceca9.chunk.js": "/personal/static/js/3.fcaceca9.chunk.js",
+    "static/js/2.31bc0879.chunk.js": "/personal/static/js/2.31bc0879.chunk.js",
+    "static/js/3.7801ab8d.chunk.js": "/personal/static/js/3.7801ab8d.chunk.js",
     "index.html": "/personal/index.html",
-    "static/js/2.fe14af88.chunk.js.LICENSE.txt": "/personal/static/js/2.fe14af88.chunk.js.LICENSE.txt",
+    "static/js/2.31bc0879.chunk.js.LICENSE.txt": "/personal/static/js/2.31bc0879.chunk.js.LICENSE.txt",
     "static/media/about.39a51089.svg": "/personal/static/media/about.39a51089.svg",
     "static/media/atom.d27f0d02.svg": "/personal/static/media/atom.d27f0d02.svg",
     "static/media/bitbucket.3bfd13b4.svg": "/personal/static/media/bitbucket.3bfd13b4.svg",
@@ -71,10 +71,10 @@
     "static/media/windows.69885565.svg": "/personal/static/media/windows.69885565.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.57921d2a.js",
+    "static/js/runtime-main.25873910.js",
     "static/css/2.2fd1ed5f.chunk.css",
-    "static/js/2.fe14af88.chunk.js",
+    "static/js/2.31bc0879.chunk.js",
     "static/css/main.0875c700.chunk.css",
-    "static/js/main.30b4fa88.chunk.js"
+    "static/js/main.869abb8f.chunk.js"
   ]
 }
