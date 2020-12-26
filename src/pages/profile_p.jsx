@@ -15,6 +15,13 @@ const linkedInUrl = 'https://www.linkedin.com/in/kukuh-baiquni-a14580163/'
 const githubUrl = 'https://github.com/kukuhBaiquni'
 const codewarsUrl = 'https://www.codewars.com/users/kuniku'
 
+const socMed = [
+    { icon: Facebook, name: facebookUrl, title: 'Facebook' },
+    { icon: LinkedIn, name: linkedInUrl, title: 'LinkedIn' },
+    { icon: Github, name: githubUrl, title: 'Github' },
+    { icon: Codewars, name: codewarsUrl, title: 'Codewars' }
+]
+
 const data = {
     'Full Name': 'Kukuh Baiquni',
     'Nationality': 'Indonesia',
@@ -22,18 +29,19 @@ const data = {
     'Address': 'Bandung, Indonesia'
 }
 
-const ProfileSection = styled.div`
+const ProfileSection = styled.section`
     margin: 2vh 0;
     width: 100%;
 `
 
 const ProfilePart = styled.div`
     margin: 2vh 0;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     ${({ theme }) => theme.desktop`
-        display: flex;
         justify-content: space-between;
+        flex-direction: row;
     `}
 `
 
@@ -43,7 +51,6 @@ const PhotoPart = styled.div`
     width: 100%;
     ${({ theme }) => theme.desktop`
         width: 37vh;
-        background-color: pink;
     `}
     & img#me {
         width: 95%;
@@ -88,6 +95,22 @@ const BioPart = styled.div`
     }
 `
 
+const SocialMedia = styled.div`
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    ${({ theme }) => theme.desktop`
+        justify-content: flex-start;
+    `}
+    & img {
+        margin-right: 1vh;
+        height: 3.5vh;
+        width: 3.5vh;
+    }
+`
+
+
 const Profile = () => {
     return (
         <ProfileSection>
@@ -108,26 +131,21 @@ const Profile = () => {
                         ))
                     }
                     <label>Other Profile</label>
-                    <div className="sm-list">
-                        <a href={facebookUrl} title='facebook.com' target='_blank'>
-                            <img src={Facebook} alt='facebook' />
-                        </a>
-                        <a href={linkedInUrl} title='linkedin.com' target='_blank'>
-                            <img src={LinkedIn} alt='linked-in' />
-                        </a>
-                        <a href={githubUrl} title='github.com' target='_blank'>
-                            <img src={Github} alt='github' />
-                        </a>
-                        <a href={codewarsUrl} title='codewars.com' target='_blank'>
-                            <img src={Codewars} alt='codewars' />
-                        </a>
-                    </div>
+                    <SocialMedia >
+                        {
+                            socMed.map(({ icon, name, title }, index) => (
+                                <a key={index} href={name} title={title} target='_blank'>
+                                    <img src={icon} alt='title' />
+                                </a>
+                            ))
+                        }
+                    </SocialMedia>
                 </BioPart>
             </ProfilePart>
-            <div className="section-header">
+            <SectionHeader>
                 <img id='codewars' src={codewarsBadge} alt='codewars' />
                 <a href="https://codewars.com" target="_blank" rel="noopener noreferrer">Join Codewars</a>
-            </div>
+            </SectionHeader>
         </ProfileSection>
     )
 }
