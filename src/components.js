@@ -21,6 +21,7 @@ const SectionHeader = styled(BasicBox)`
         color: ${({ theme }) => theme.font};
         font-weight: bold;
         font-size: 1.8vh;
+        margin-right: 2vh;
         display: none;
         ${({ theme }) => theme.desktop`
             display: flex;

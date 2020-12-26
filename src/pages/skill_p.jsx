@@ -1,3 +1,6 @@
+import styled from 'styled-components'
+import { BasicBox, SectionHeader } from '../components'
+
 import Python from 'assets/svg/python.svg'
 import Javascript from 'assets/svg/javascript.svg'
 import Github from 'assets/svg/github.svg'
@@ -23,7 +26,6 @@ import Bootstrap from 'assets/svg/bootstrap.svg'
 
 import Chai from 'assets/svg/chai.svg'
 import Express from 'assets/svg/express.svg'
-import Figma from 'assets/svg/figma.svg'
 import Firebase from 'assets/svg/firebase.svg'
 import Heroku from 'assets/svg/heroku.svg'
 import Mocha from 'assets/svg/mocha.svg'
@@ -73,34 +75,68 @@ const frameworks = [
     { title: 'Puppeteer', url: Puppeteer },
 ]
 
+const SkillSection = styled.section`
+    margin-bottom: 10vh;
+    & .slick-slider.slick-initialized {
+        ${({ theme }) => theme.desktop`
+            display: none
+        `}
+        & button.slick-arrow.slick-prev,
+        & button.slick-arrow.slick-next {
+            display: none;
+        }
+    }
+`
+
+const SkillBoxPhone = styled(BasicBox)`
+    width: 100%;
+    height: 20vh;
+    margin-bottom: 1.6vh;
+    border-radius: .5vh;
+    text-align: center;
+    & h5 {
+            font-size: 2vh;
+            color: ${({ theme }) => theme.fontNormal};
+    }
+    .list-logo {
+        display: flex;
+        justify-content: center;
+        & img {
+            width: 6vh;
+            height: 6vh;
+            margin-right: 2vh;
+            object-fit: cover;
+        }
+    }
+`
+
 const Skill = ({ skillRef }) => {
 
     const baseSkill = useRef()
 
     return (
-        <div ref={skillRef} className="skill-container">
-            <div className="section-header">
+        <SkillSection ref={skillRef} >
+            <SectionHeader>
                 <h4>SKILL AND COMPETENCES</h4>
-            </div>
-            <div className="section-body no-bg">
-                <Slider ref={baseSkill} {...settings}>
-                    {
-                        skills.map(({ name, list }, index) => (
-                            <div id='skill-box' key={index} className="skill-box">
-                                <div className="cp">
-                                    <h5>{name}</h5>
-                                    <div className="list-logo">
-                                        {
-                                            list.map(({ url, title }, i) => (
-                                                <img key={i} title={title} src={url} alt={title} />
-                                            ))
-                                        }
-                                    </div>
-                                </div>
+            </SectionHeader>
+            <Slider ref={baseSkill} {...settings}>
+                {
+                    skills.map(({ name, list }, index) => (
+                        <SkillBoxPhone key={index}>
+                            <h5>{name}</h5>
+                            <div className="list-logo">
+                                {
+                                    list.map(({ url, title }, i) => (
+                                        <img key={i} title={title} src={url} alt={title} />
+                                    ))
+                                }
                             </div>
-                        ))
-                    }
-                </Slider>
+                        </SkillBoxPhone>
+                    ))
+                }
+            </Slider>
+            <div className="section-body no-bg">
+
                 <div className="arrow-slider">
                     <Chevron onClick={() => baseSkill.current.slickPrev()} />
                     <Chevron onClick={() => baseSkill.current.slickNext()} />
@@ -136,7 +172,7 @@ const Skill = ({ skillRef }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </SkillSection>
     )
 }
 

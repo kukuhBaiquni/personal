@@ -52,7 +52,7 @@ const PhotoPart = styled.div`
     ${({ theme }) => theme.desktop`
         width: 37vh;
     `}
-    & img#me {
+    img#me {
         width: 95%;
         border-right: 0;
         height: 50vh;
@@ -60,7 +60,7 @@ const PhotoPart = styled.div`
         object-fit: contain;
         margin-bottom: 1vh;
         ${({ theme }) => theme.desktop`
-            width: 35vh;
+            width: 37vh;
             height: 45vh;
             border-right: 2vh solid transparent;
             object-fit: cover;
@@ -81,16 +81,16 @@ const BioPart = styled.div`
         padding: 2vh;
         text-align: left;
     `}
-    & label {
+    label {
         color: ${({ theme }) => theme.fontNormal};
         font-size: 2vh;
     }
-    & span {
+    span {
         color: ${({ theme }) => theme.font};
         font-size: 2.5vh;
         margin-bottom: 2vh;
     }
-    & p {
+    p {
         color: ${({ theme }) => theme.fontNormal}
     }
 `
@@ -103,7 +103,7 @@ const SocialMedia = styled.div`
     ${({ theme }) => theme.desktop`
         justify-content: flex-start;
     `}
-    & img {
+    img {
         margin-right: 1vh;
         height: 3.5vh;
         width: 3.5vh;

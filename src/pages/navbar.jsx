@@ -37,17 +37,17 @@ const AnchorList = styled.div`
     align-items: center;
     padding: 0 2vh;
     cursor: pointer;
-    & svg {
+    svg {
         width: 3vh;
         height: 3vh;
-        & path {
+        path {
             fill: ${({ theme }) => theme.font}
         }
         ${({ theme }) => theme.desktop`
             display: none;
         `}
     }
-    & p {
+    p {
         transition: color .25s, margin-top .25s;
         font-weight: bold;
         color: ${({ theme }) => theme.font};
@@ -57,7 +57,7 @@ const AnchorList = styled.div`
             display: flex;
         `}
     }
-    & .active-indicator {
+    .active-indicator {
         width: 1.5vh;
         height: 1.5vh;
         background-color: ${({theme}) => theme.font};
