@@ -6,7 +6,7 @@ import { ReactComponent as Tree } from 'assets/images/tree.svg'
 const ExperienceFill = styled(BasicBox)`
     padding: 5vh 2vh .5vh;
     display: flex;
-    margin-bottom: 10vh;
+    margin-bottom: 2vh;
     svg {
         height: 38vh;
         rect {

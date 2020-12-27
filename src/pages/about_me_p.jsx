@@ -4,7 +4,7 @@ import { BasicBox, SectionHeader } from '../components'
 const codewars = 'https://codewars.com'
 
 const AboutBody = styled.section`
-    margin-bottom: 10vh;
+    margin-bottom: 2vh;
     position: relative;
 `
 

@@ -72,7 +72,7 @@ const frameworks = [
 ]
 
 const SkillSection = styled.section`
-    margin-bottom: 10vh;
+    margin-bottom: 2vh;
     .slick-slider.slick-initialized {
         ${({ theme }) => theme.desktop`display:none`}
         & button.slick-arrow.slick-prev,

@@ -1,7 +1,6 @@
 import styled, { ThemeProvider } from 'styled-components'
 import { useState, useRef, useEffect } from 'react'
 
-import './scss/home.scss'
 import Profile from './profile_p'
 import AboutMe from './about_me_p'
 import Skill from './skill_p'
@@ -9,7 +8,6 @@ import Portfolio from './portfolio_p'
 import Experience from './experience_p'
 import Navbar from './navbar'
 import Theme from '../theme'
-
 
 const Test = styled.div`
     background-color: ${c => console.log('log basic', c)};
@@ -21,8 +19,26 @@ const Wrapper = styled.div`
 `
 
 const ContentWrapper = styled.div`
-    padding: 10vh 0;
-    ${({ theme}) => theme.desktop`padding:15vh 20.1% 0;`}
+    padding: 10vh 0 3vh 0;
+    ${({ theme}) => theme.desktop`padding:10vh 20.1% 0 20.1%;`}
+`
+
+const Footer = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    ${({ theme }) => theme.desktop`
+        flex-direction: row;
+        justify-content: flex-start;
+    `};
+    p {
+        color: ${({ theme }) => theme.font};
+        font-weight: bold;
+        text-align: center;
+        margin: 3vh 2vh 0 0;
+        ${({ theme }) => theme.desktop`margin: 3vh 2vh 3vh 0`}
+    }
 `
 
 const Home = () => {
@@ -77,11 +93,11 @@ const Home = () => {
                     <Skill skillRef={skillRef} />
                     <Experience experienceRef={experienceRef} />
                     <Portfolio portfolioRef={portfolioRef} />
-                    {/* <div ref={bottomRef} id="cp">
+                    <Footer>
                         <p id='cp'>Email: kukuh.baiquni@gmail.com</p>
-                        <p id='cp'>Kukuh Baiquni © 2020</p>
                         <p id='cp'>Mobile: +62 821 1903 0614</p>
-                    </div> */}
+                        <p id='cp'>Kukuh Baiquni © 2020</p>
+                    </Footer>
                 </ContentWrapper>
             </Wrapper>
         </ThemeProvider>

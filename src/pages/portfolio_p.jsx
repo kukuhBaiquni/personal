@@ -33,6 +33,8 @@ import Firebase from 'assets/svg/firebase.svg'
 
 import Lightbox from 'react-image-lightbox'
 import { useState, Fragment } from 'react'
+import styled from 'styled-components'
+import { BasicBox, SectionHeader } from '../components'
 
 const imagesMob = [SS1, SS2, SS3, SS4]
 const imagesTsq = [TSQ1, TSQ2, TSQ3, TSQ4, TSQ5]
@@ -71,6 +73,43 @@ const dataList = [
     }
 ]
 
+const PortfolioList = styled(BasicBox)`
+    padding: .5vh 2vh 2vh;
+    text-align: center;
+    ${({ theme }) => theme.desktop`text-align:left`}
+    h4 {
+        font-size: 2.5vh;
+        color: ${({ theme }) => theme.font}
+    }
+    p,i {
+        color: ${({ theme }) => theme.fontNormal};
+        font-size: 2vh;
+    }
+    img.sshot {
+        width: 20vh;
+        margin-right: 2vh;
+        margin-bottom: 2vh;
+        cursor: pointer;
+    }
+    .stack-list {
+        display: flex;
+        justify-content: center;
+        ${({ theme }) => theme.desktop`
+            justify-content: flex-start;
+        `}
+        img {
+            margin-bottom: 2vh;
+            object-fit: contain;
+            height: 3vh;
+            width: 5vh;
+            ${({ theme }) => theme.desktop`
+                height: 5vh;
+                width: 8vh;
+            `}
+        }
+    }
+`
+
 const Portfolio = ({ portfolioRef }) => {
 
     const [tsqImage, setTsqImage] = useState({ isOpen: false, index: 0 })
@@ -78,7 +117,7 @@ const Portfolio = ({ portfolioRef }) => {
     const [extranetImage, setExtranetImage] = useState({ isOpen: false, index: 0 })
 
     const checkShot = (index, idx) => {
-        switch(index) {
+        switch (index) {
             case 1:
                 setMobImage({ index: idx, isOpen: true })
                 break
@@ -94,31 +133,29 @@ const Portfolio = ({ portfolioRef }) => {
     }
 
     return (
-        <div ref={portfolioRef} className="portfolio-container">
-            <div className="section-header">
+        <section ref={portfolioRef}>
+            <SectionHeader>
                 <h4>PORTFOLIO</h4>
-            </div>
-            <div className="section-body">
-                <div className="portfolio-list">
-                    {
-                        dataList.map(({ name, description, stack, shot }, index) => (
-                            <Fragment key={index}>
-                                <h4>{name}</h4>
-                                <p>{description}</p>
-                                <p>Technology:</p>
-                                <div className="stack-list">
-                                    {
-                                        stack.map(({ url, title }, i) => (
-                                            <img key={i} title={title} src={url} alt={title} />
-                                        ))
-                                    }
-                                </div>
-                                {shot.length ? shot.map((url, idx) => <img className='sshot' key={idx} onClick={() => checkShot(index, idx)} src={url} alt='screenshot' />) : <i>Images not available.</i>}
-                            </Fragment>
-                        ))
-                    }
-                </div>
-            </div>
+            </SectionHeader>
+            <PortfolioList>
+                {
+                    dataList.map(({ name, description, stack, shot }, index) => (
+                        <Fragment key={index}>
+                            <h4>{name}</h4>
+                            <p>{description}</p>
+                            <p>Technology:</p>
+                            <div className="stack-list">
+                                {
+                                    stack.map(({ url, title }, i) => (
+                                        <img key={i} title={title} src={url} alt={title} />
+                                    ))
+                                }
+                            </div>
+                            {shot.length ? shot.map((url, idx) => <img className='sshot' key={idx} onClick={() => checkShot(index, idx)} src={url} alt='screenshot' />) : <i>Images not available.</i>}
+                        </Fragment>
+                    ))
+                }
+            </PortfolioList>
             {
                 mobImage.isOpen &&
                 <Lightbox
@@ -152,7 +189,7 @@ const Portfolio = ({ portfolioRef }) => {
                     onMoveNextRequest={() => setTsqImage({ ...tsqImage, index: (tsqImage.index + 1) % imagesTsq.length })}
                 />
             }
-        </div>
+        </section>
     )
 }
 

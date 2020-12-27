@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import styled from 'styled-components'
-import { BasicBox, SectionHeader } from '../components'
+import { SectionHeader } from '../components'
 
 import Image from 'assets/images/me.jpg'
 
