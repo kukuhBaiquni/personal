@@ -14,7 +14,7 @@ import Windows from 'assets/svg/windows.svg'
 import Ubuntu from 'assets/svg/ubuntu.svg'
 import Mongo from 'assets/svg/mongodb.svg'
 import Postgres from 'assets/svg/psg.svg'
-import React from 'assets/svg/react.svg'
+import ReactJS from 'assets/svg/react.svg'
 import Redux from 'assets/svg/redux.svg'
 import ReduxSaga from 'assets/svg/saga.svg'
 import NodeJS from 'assets/svg/node.svg'
@@ -23,6 +23,7 @@ import HTML from 'assets/svg/html.svg'
 import CSS from 'assets/svg/css.svg'
 import SASS from 'assets/svg/sass.svg'
 import Bootstrap from 'assets/svg/bootstrap.svg'
+import Styled from 'assets/svg/styled.png'
 
 import Chai from 'assets/svg/chai.svg'
 import Express from 'assets/svg/express.svg'
@@ -53,7 +54,7 @@ const skills = [
 
 const frameworks = [
     { title: 'NodeJS', url: NodeJS },
-    { title: 'ReactJS & React Native', url: React },
+    { title: 'ReactJS & React Native', url: ReactJS },
     { title: 'Redux', url: Redux },
     { title: 'Redux Saga', url: ReduxSaga },
     { title: 'ExpressJS', url: Express },
@@ -61,6 +62,7 @@ const frameworks = [
     { title: 'HTML 5', url: HTML },
     { title: 'CSS 3', url: CSS },
     { title: 'SASS', url: SASS },
+    { title: 'Styled Components', url: Styled },
     { title: 'Bootstrap', url: Bootstrap },
     { title: 'ChaiJS', url: Chai },
     { title: 'MochaJS', url: Mocha },

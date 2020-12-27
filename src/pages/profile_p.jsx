@@ -92,7 +92,7 @@ const BioPart = styled.div`
         color: ${({ theme }) => theme.fontNormal}
     }
     .force-bottom {
-        ${({ theme }) => theme.desktop`margin-top:4vh`}
+        ${({ theme }) => theme.desktop`margin-top:3.5vh`}
     }
 `
 

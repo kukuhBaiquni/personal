@@ -20,7 +20,9 @@ const ExperienceFill = styled(BasicBox)`
         .list-exp {
             margin-bottom: 5vh;
             font-size: 2vh;
+            text-align: left;
             h5 {
+                font-size: 2vh;
                 margin: 0;
                 color: ${({ theme }) => theme.font};
             }

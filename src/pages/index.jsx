@@ -1,6 +1,10 @@
 import styled, { ThemeProvider } from 'styled-components'
 import { useState, useRef, useEffect } from 'react'
 
+import Styled from 'assets/svg/styled.png'
+import Javascript from 'assets/svg/javascript.svg'
+import ReactJS from 'assets/svg/react.svg'
+
 import Profile from './profile_p'
 import AboutMe from './about_me_p'
 import Skill from './skill_p'
@@ -14,13 +18,32 @@ const Test = styled.div`
 `
 
 const Wrapper = styled.div`
-    background-color: ${({theme}) => theme.bg};
+    background-color: ${({ theme }) => theme.bg};
     overflow: hidden;
 `
 
 const ContentWrapper = styled.div`
-    padding: 10vh 0 3vh 0;
-    ${({ theme}) => theme.desktop`padding:10vh 20.1% 0 20.1%;`}
+    padding: 10vh 0 1.5vh 0;
+    color: ${({ theme }) => theme.fontNormal};
+    font-size: 2vh;
+    text-align: center;
+    .built-with {
+        font-weight: normal;
+        display: flex;
+        justify-content: center;
+        p {margin-right: 1vh}
+        .lst {
+            display: flex;
+            justify-content: center;
+            img {
+                width: 3vh;
+                object-fit: contain;
+                margin-right: 1vh;
+            }
+        }
+    }
+    p#author {margin-top: 0}
+    ${({ theme }) => theme.desktop`padding:10vh 20.1% 0 20.1%;`}
 `
 
 const Footer = styled.div`
@@ -30,19 +53,16 @@ const Footer = styled.div`
     justify-content: center;
     ${({ theme }) => theme.desktop`
         flex-direction: row;
-        justify-content: flex-start;
     `};
     p {
-        color: ${({ theme }) => theme.font};
-        font-weight: bold;
         text-align: center;
         margin: 3vh 2vh 0 0;
-        ${({ theme }) => theme.desktop`margin: 3vh 2vh 3vh 0`}
+        ${({ theme }) => theme.desktop`margin: 3vh 2vh 0 0`}
     }
 `
 
 const Home = () => {
-    
+
     const [theme, setTheme] = useState(Theme.light)
     const [isDark, setIsDark] = useState(false)
     const aboutRef = useRef(null)
@@ -93,11 +113,19 @@ const Home = () => {
                     <Skill skillRef={skillRef} />
                     <Experience experienceRef={experienceRef} />
                     <Portfolio portfolioRef={portfolioRef} />
-                    <Footer>
+                    <Footer ref={bottomRef}>
                         <p id='cp'>Email: kukuh.baiquni@gmail.com</p>
                         <p id='cp'>Mobile: +62 821 1903 0614</p>
-                        <p id='cp'>Kukuh Baiquni © 2020</p>
                     </Footer>
+                    <div className='built-with'>
+                        <p>Built with</p>
+                        <div className="lst">
+                            <img title='Javascript' src={Javascript} alt='javascript' />
+                            <img title='ReactJS' src={ReactJS} alt='ReactJS' />
+                            <img title='Styled Components' src={Styled} alt='Styled Components' />
+                        </div>
+                    </div>
+                    <p id='author'>Kukuh Baiquni © 2020</p>
                 </ContentWrapper>
             </Wrapper>
         </ThemeProvider>
