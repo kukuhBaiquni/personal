@@ -39,6 +39,6 @@ const SectionHeader = styled(BasicBox)`
 `
 
 export {
-    BasicBox,
-    SectionHeader
+  BasicBox,
+  SectionHeader,
 }

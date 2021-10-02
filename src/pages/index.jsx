@@ -58,72 +58,71 @@ const Footer = styled.div`
 `
 
 const Home = () => {
+  const [theme, setTheme] = useState(Theme.light)
+  const [isDark, setIsDark] = useState(false)
+  const aboutRef = useRef(null)
+  const skillRef = useRef(null)
+  const experienceRef = useRef(null)
+  const portfolioRef = useRef(null)
+  const bottomRef = useRef(null)
 
-    const [theme, setTheme] = useState(Theme.light)
-    const [isDark, setIsDark] = useState(false)
-    const aboutRef = useRef(null)
-    const skillRef = useRef(null)
-    const experienceRef = useRef(null)
-    const portfolioRef = useRef(null)
-    const bottomRef = useRef(null)
-
-    useEffect(() => {
-        const selectedTheme = JSON.parse(localStorage.getItem('theme'))
-        if (selectedTheme) {
-            setIsDark(selectedTheme)
-            setTheme(selectedTheme ? Theme.dark : Theme.light)
-        }
-    }, [])
-
-    const changeTheme = args => {
-        localStorage.setItem('theme', args)
-        setIsDark(args)
-        setTheme(args ? Theme.dark : Theme.light)
+  useEffect(() => {
+    const selectedTheme = JSON.parse(localStorage.getItem('theme'))
+    if (selectedTheme) {
+      setIsDark(selectedTheme)
+      setTheme(selectedTheme ? Theme.dark : Theme.light)
     }
+  }, [])
 
-    const scrollToTop = () => window.scrollTo(0, 0)
-    const scrollToAbout = () => aboutRef.current.scrollIntoView()
-    const scrollToSkill = () => skillRef.current.scrollIntoView()
-    const scrollToExperience = () => experienceRef.current.scrollIntoView()
-    const scrollToPortfolio = () => portfolioRef.current.scrollIntoView()
-    const scrollToBottom = () => bottomRef.current.scrollIntoView()
+  const changeTheme = (args) => {
+    localStorage.setItem('theme', args)
+    setIsDark(args)
+    setTheme(args ? Theme.dark : Theme.light)
+  }
 
-    return (
-        <ThemeProvider theme={theme}>
-            <Wrapper>
-                <ContentWrapper>
-                    <Navbar
-                        scrollToTop={scrollToTop}
-                        scrollToAbout={scrollToAbout}
-                        scrollToSkill={scrollToSkill}
-                        scrollToExperience={scrollToExperience}
-                        scrollToPortfolio={scrollToPortfolio}
-                        scrollToBottom={scrollToBottom}
-                        changeTheme={changeTheme}
-                        isDark={isDark}
-                    />
-                    <Profile />
-                    <AboutMe aboutRef={aboutRef} />
-                    <Skill skillRef={skillRef} />
-                    <Experience experienceRef={experienceRef} />
-                    <Portfolio portfolioRef={portfolioRef} />
-                    <Footer ref={bottomRef}>
-                        <p id='cp'>Email: kukuh.baiquni@gmail.com</p>
-                        <p id='cp'>Mobile: +62 821 1903 0614</p>
-                    </Footer>
-                    <div className='built-with'>
-                        <p>Built with</p>
-                        <div className="lst">
-                            <img title='Javascript' src={Javascript} alt='javascript' />
-                            <img title='ReactJS' src={ReactJS} alt='ReactJS' />
-                            <img title='Styled Components' src={Styled} alt='Styled Components' />
-                        </div>
-                    </div>
-                    <p id='author'>Kukuh Baiquni © 2020</p>
-                </ContentWrapper>
-            </Wrapper>
-        </ThemeProvider>
-    )
+  const scrollToTop = () => window.scrollTo(0, 0)
+  const scrollToAbout = () => aboutRef.current.scrollIntoView()
+  const scrollToSkill = () => skillRef.current.scrollIntoView()
+  const scrollToExperience = () => experienceRef.current.scrollIntoView()
+  const scrollToPortfolio = () => portfolioRef.current.scrollIntoView()
+  const scrollToBottom = () => bottomRef.current.scrollIntoView()
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Wrapper>
+        <ContentWrapper>
+          <Navbar
+            changeTheme={changeTheme}
+            isDark={isDark}
+            scrollToAbout={scrollToAbout}
+            scrollToBottom={scrollToBottom}
+            scrollToExperience={scrollToExperience}
+            scrollToPortfolio={scrollToPortfolio}
+            scrollToSkill={scrollToSkill}
+            scrollToTop={scrollToTop}
+          />
+          <Profile />
+          <AboutMe aboutRef={aboutRef} />
+          <Skill skillRef={skillRef} />
+          <Experience experienceRef={experienceRef} />
+          <Portfolio portfolioRef={portfolioRef} />
+          <Footer ref={bottomRef}>
+            <p id='cp'>Email: kukuh.baiquni@gmail.com</p>
+            <p id='cp'>Mobile: +62 821 1903 0614</p>
+          </Footer>
+          <div className='built-with'>
+            <p>Built with</p>
+            <div className='lst'>
+              <img alt='javascript' src={Javascript} title='Javascript' />
+              <img alt='ReactJS' src={ReactJS} title='ReactJS' />
+              <img alt='Styled Components' src={Styled} title='Styled Components' />
+            </div>
+          </div>
+          <p id='author'>Kukuh Baiquni © 2020</p>
+        </ContentWrapper>
+      </Wrapper>
+    </ThemeProvider>
+  )
 }
 
 export default Home

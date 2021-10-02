@@ -4,15 +4,15 @@ import './index.css'
 import reportWebVitals from './reportWebVitals'
 import Home from './pages'
 import 'react-image-lightbox/style.css'
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 ReactDOM.render(
   <React.StrictMode>
-      <Home />
+    <Home />
   </React.StrictMode>,
-  document.getElementById('root')
-);
+  document.getElementById('root'),
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

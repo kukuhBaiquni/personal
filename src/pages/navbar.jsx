@@ -1,4 +1,3 @@
-
 import styled from 'styled-components'
 import Switch from 'react-switch'
 
@@ -31,7 +30,6 @@ const NavbarContainer = styled(BasicBox)`
     }
 `
 
-
 const AnchorList = styled.div`
     display: flex;
     align-items: center;
@@ -44,7 +42,7 @@ const AnchorList = styled.div`
             fill: ${({ theme }) => theme.font}
         }
         ${({ theme }) => theme.desktop`
-            display: none;
+            display: flex;
         `}
     }
     p {
@@ -53,27 +51,27 @@ const AnchorList = styled.div`
         color: ${({ theme }) => theme.font};
         font-size: 1.5vh;
         display: none;
-        ${({theme}) => theme.desktop`
-            display: flex;
+        ${({ theme }) => theme.desktop`
+            display: none;
         `}
     }
     .active-indicator {
         width: 1.5vh;
         height: 1.5vh;
-        background-color: ${({theme}) => theme.font};
+        background-color: ${({ theme }) => theme.font};
         margin-right: 1vh;
         transition: border-radius .25s, margin-top .25s;
         display: none;
-        ${({theme}) => theme.desktop`
-            display: flex;
+        ${({ theme }) => theme.desktop`
+            display: none;
         `}
     }
     &:hover {
         p {
-            color: ${({theme}) => theme.hover};
+            color: ${({ theme }) => theme.hover};
         }
         .active-indicator {
-            background-color: ${({theme}) => theme.hover};
+            background-color: ${({ theme }) => theme.hover};
             border-radius: 50%;
         }
     }
@@ -92,58 +90,57 @@ const SwitchIcon = styled.div`
 `
 
 const Navbar = ({
-    scrollToTop,
-    scrollToAbout,
-    scrollToSkill,
-    scrollToExperience,
-    scrollToPortfolio,
-    scrollToBottom,
-    changeTheme,
-    isDark
+  scrollToTop,
+  scrollToAbout,
+  scrollToSkill,
+  scrollToExperience,
+  scrollToPortfolio,
+  scrollToBottom,
+  changeTheme,
+  isDark,
 }) => {
+  const Section = [
+    { name: 'PROFILE', icon: <UserIcon />, anchor: scrollToTop },
+    { name: 'ABOUT ME', icon: <AboutIcon />, anchor: scrollToAbout },
+    { name: 'SKILL AND COMPETENCES', icon: <SkillIcon />, anchor: scrollToSkill },
+    { name: 'EXPERIENCE', icon: <ExperienceIcon />, anchor: scrollToExperience },
+    { name: 'PORTFOLIO', icon: <PortfolioIcon />, anchor: scrollToPortfolio },
+    { name: 'CONTACT ME', icon: <ContactIcon />, anchor: scrollToBottom },
+  ]
 
-    const Section = [
-        { name: 'PROFILE', icon: <UserIcon />, anchor: scrollToTop },
-        { name: 'ABOUT ME', icon: <AboutIcon />, anchor: scrollToAbout },
-        { name: 'SKILL AND COMPETENCES', icon: <SkillIcon />, anchor: scrollToSkill },
-        { name: 'EXPERIENCE', icon: <ExperienceIcon />, anchor: scrollToExperience },
-        { name: 'PORTFOLIO', icon: <PortfolioIcon />, anchor: scrollToPortfolio },
-        { name: 'CONTACT ME', icon: <ContactIcon />, anchor: scrollToBottom }
-    ]
-
-    return (
-        <NavbarContainer as='nav'>
-            {
-                Section.map(({name, icon, anchor}, index) => (
-                    <AnchorList key={index} onClick={anchor}>
-                        {icon}
-                        <div className="active-indicator" />
-                        <p>{name}</p>
-                    </AnchorList>
-                ))
-            }
-            <AnchorList>
-                <Switch
-                    onChange={changeTheme}
-                    checked={isDark}
-                    onHandleColor='#bababa'
-                    offHandleColor='#bababa'
-                    offColor='#434343'
-                    onColor='#434343'
-                    uncheckedIcon={
-                        <SwitchIcon>
-                            <img src={Sun} alt='sun' />
-                        </SwitchIcon>
-                    }
-                    checkedIcon={
-                        <SwitchIcon>
-                            <img src={Moon} alt='moon' />
-                        </SwitchIcon>
-                    }
-                />
-            </AnchorList>
-        </NavbarContainer>
-    )
+  return (
+    <NavbarContainer as='nav'>
+      {
+        Section.map(({ name, icon, anchor }, index) => (
+          <AnchorList key={index} onClick={anchor}>
+            {icon}
+            <div className='active-indicator' />
+            <p>{name}</p>
+          </AnchorList>
+        ))
+      }
+      <AnchorList>
+        <Switch
+          checked={isDark}
+          checkedIcon={(
+            <SwitchIcon>
+              <img alt='moon' src={Moon} />
+            </SwitchIcon>
+          )}
+          offColor='#434343'
+          offHandleColor='#bababa'
+          uncheckedIcon={(
+            <SwitchIcon>
+              <img alt='sun' src={Sun} />
+            </SwitchIcon>
+          )}
+          onChange={changeTheme}
+          onColor='#434343'
+          onHandleColor='#bababa'
+        />
+      </AnchorList>
+    </NavbarContainer>
+  )
 }
 
 export default Navbar

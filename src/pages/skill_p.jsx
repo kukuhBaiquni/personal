@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { BasicBox, SectionHeader } from '../components'
+import { Fragment } from 'react'
 
 import Python from 'assets/svg/python.svg'
 import Javascript from 'assets/svg/javascript.svg'
@@ -22,6 +22,9 @@ import JQuery from 'assets/svg/jquery.svg'
 import HTML from 'assets/svg/html.svg'
 import CSS from 'assets/svg/css.svg'
 import SASS from 'assets/svg/sass.svg'
+import ReactQuery from 'assets/svg/react-query.svg'
+import Tailwind from 'assets/svg/tailwind-css.svg'
+import Next from 'assets/svg/next-js.svg'
 import Bootstrap from 'assets/svg/bootstrap.svg'
 import Styled from 'assets/svg/styled.png'
 
@@ -35,45 +38,55 @@ import Socket from 'assets/svg/socket.svg'
 import Puppeteer from 'assets/svg/ppt.svg'
 
 import Slider from 'react-slick'
+import { BasicBox, SectionHeader } from '../components'
 
 const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    swipeToSlide: false
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 1500,
+  swipeToSlide: false,
 }
 
 const skills = [
-    { name: 'Programming Language', list: [{ url: Javascript, title: 'Javascript' }, { url: Python, title: 'Python' }] },
-    { name: 'Project Management Tools', list: [{ url: Jira, title: 'Jira' }, { url: Trello, title: 'Trello' }] },
-    { name: 'Version Control', list: [{ url: Github, title: 'Gitlab' }, { url: Gitlab, title: 'Gitlab' }, { url: Bitbucket, title: 'Bitbucket' }] },
-    { name: 'Development Tools', list: [{ url: VScode, title: 'Visual Studio' }, { url: Atom, title: 'Atom' }] },
-    { name: 'System Operations', list: [{ url: Ubuntu, title: 'Ubuntu' }, { url: Windows, title: 'Windows 10' }] },
-    { name: 'Database Management', list: [{ url: Mongo, title: 'MongoDB' }, { url: Postgres, title: 'PostgreSQL' }] }
+  { name: 'Programming Language', list: [{ url: Javascript, title: 'Javascript' }, { url: Python, title: 'Python' }] },
+  { name: 'Project Management Tools', list: [{ url: Jira, title: 'Jira' }, { url: Trello, title: 'Trello' }] },
+  { name: 'Version Control', list: [{ url: Github, title: 'Gitlab' }, { url: Gitlab, title: 'Gitlab' }, { url: Bitbucket, title: 'Bitbucket' }] },
+  { name: 'Development Tools', list: [{ url: VScode, title: 'Visual Studio' }, { url: Atom, title: 'Atom' }] },
+  { name: 'System Operations', list: [{ url: Ubuntu, title: 'Ubuntu' }, { url: Windows, title: 'Windows 10' }] },
+  { name: 'Database Management', list: [{ url: Mongo, title: 'MongoDB' }, { url: Postgres, title: 'PostgreSQL' }] },
 ]
 
 const frameworks = [
-    { title: 'NodeJS', url: NodeJS },
-    { title: 'ReactJS & React Native', url: ReactJS },
-    { title: 'Redux', url: Redux },
-    { title: 'Redux Saga', url: ReduxSaga },
-    { title: 'ExpressJS', url: Express },
-    { title: 'JQuery', url: JQuery },
-    { title: 'HTML 5', url: HTML },
-    { title: 'CSS 3', url: CSS },
-    { title: 'SASS', url: SASS },
-    { title: 'Styled Components', url: Styled },
-    { title: 'Bootstrap', url: Bootstrap },
-    { title: 'ChaiJS', url: Chai },
-    { title: 'MochaJS', url: Mocha },
-    { title: 'Socket.io', url: Socket },
-    { title: 'Postman', url: Postman },
-    { title: 'Heroku', url: Heroku },
-    { title: 'Firebase', url: Firebase },
-    { title: 'Puppeteer', url: Puppeteer },
+  { url: Javascript, title: 'Javascript' },
+  { url: Jira, title: 'Jira' }, { url: Trello, title: 'Trello' },
+  { url: Github, title: 'Gitlab' }, { url: Gitlab, title: 'Gitlab' }, { url: Bitbucket, title: 'Bitbucket' },
+  { url: VScode, title: 'Visual Studio' }, { url: Atom, title: 'Atom' },
+  { url: Ubuntu, title: 'Ubuntu' }, { url: Windows, title: 'Windows 10' },
+  { url: Mongo, title: 'MongoDB' }, { url: Postgres, title: 'PostgreSQL' },
+  { title: 'NodeJS', url: NodeJS },
+  { title: 'ReactJS & React Native', url: ReactJS },
+  { title: 'Redux', url: Redux },
+  { title: 'Redux Saga', url: ReduxSaga },
+  { title: 'ExpressJS', url: Express },
+  { title: 'JQuery', url: JQuery },
+  { title: 'HTML 5', url: HTML },
+  { title: 'CSS 3', url: CSS },
+  { title: 'SASS', url: SASS },
+  { title: 'Styled Components', url: Styled },
+  { title: 'Bootstrap', url: Bootstrap },
+  { title: 'ChaiJS', url: Chai },
+  { title: 'MochaJS', url: Mocha },
+  { title: 'Socket.io', url: Socket },
+  { title: 'Postman', url: Postman },
+  { title: 'Heroku', url: Heroku },
+  { title: 'Firebase', url: Firebase },
+  { title: 'Puppeteer', url: Puppeteer },
+  { title: 'NextJS', url: Next },
+  { title: 'TailwindCSS', url: Tailwind },
+  { title: 'React Query', url: ReactQuery },
 ]
 
 const SkillSection = styled.section`
@@ -110,13 +123,14 @@ const SkillBoxPhone = styled(BasicBox)`
 `
 
 const SkillDesktopView = styled.div`
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-wrap: wrap;
     display: none;
+    column-gap: 12px;
     ${({ theme }) => theme.desktop`display:flex`}
 `
 const SkillBoxDesktop = styled(BasicBox)`
-    width: 38vh;
+    max-width: 38vh;
     height: 20vh;
     border-radius: .5vh;
     margin-bottom: 1.6vh;
@@ -137,7 +151,8 @@ const SkillBoxDesktop = styled(BasicBox)`
 `
 
 const Frameworks = styled(BasicBox)`
-    padding: 2vh;
+    padding: 18px;
+    padding-top: 28px;
     h5 {
         font-size: 2vh;
         color: ${({ theme }) => theme.font};
@@ -148,69 +163,71 @@ const Frameworks = styled(BasicBox)`
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        img {
-            height: 8vh;
-            margin-bottom: 3vh;
-            padding: 1vh;
+        margin: 0 3vh;
+        .snc {
+          background-color: ${({ theme }) => theme.shade};
+          padding: 0px 10px;
+          margin-left: 5px;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 5px;
+          h6 {
+            font-size: 16px;
+          }
+          .snc-list {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            img {
+                height: 25px;
+                margin-right: 10px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+        .fl-w {
+          background-color: ${({ theme }) => theme.shade};
+          min-width: 30px;
+          padding: 0px 10px;
+          margin-left: 5px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          margin-bottom: 5px;
+          img {
+              height: 25px;
+              margin-right: 10px;
+          }
+          p {
+            font-size: 14px;
+          }
         }
     }
 `
 
-const Skill = ({ skillRef }) => {
-
-    return (
-        <SkillSection ref={skillRef} >
-            <SectionHeader>
-                <h4>SKILL AND COMPETENCES</h4>
-            </SectionHeader>
-            <Slider {...settings}>
-                {
-                    skills.map(({ name, list }, index) => (
-                        <SkillBoxPhone key={index}>
-                            <h5>{name}</h5>
-                            <div className="list-logo">
-                                {
-                                    list.map(({ url, title }, i) => (
-                                        <img key={i} title={title} src={url} alt={title} />
-                                    ))
-                                }
-                            </div>
-                        </SkillBoxPhone>
-                    ))
-                }
-            </Slider>
-            <div className="section-body no-bg">
-                <SkillDesktopView>
-                    {
-                        skills.map(({ name, list }, index) => (
-                            <SkillBoxDesktop key={index}>
-                                <div className="cp">
-                                    <h5>{name}</h5>
-                                    <div className="list-logo">
-                                        {
-                                            list.map(({ url, title }, i) => (
-                                                <img key={i} title={title} src={url} alt={title} />
-                                            ))
-                                        }
-                                    </div>
-                                </div>
-                            </SkillBoxDesktop>
-                        ))
-                    }
-                </SkillDesktopView>
+const Skill = ({ skillRef }) => (
+  <SkillSection ref={skillRef}>
+    <SectionHeader>
+      <h4>SKILL AND COMPETENCES</h4>
+    </SectionHeader>
+    <Frameworks>
+      <div className='framework-list'>
+        {
+          frameworks.map(({ title, url }, index) => (
+            <div className='fl-w' key={index}>
+              <img alt={title} src={url} title={title} />
+              <p>{title}</p>
             </div>
-            <Frameworks>
-                <h5>Others Technology</h5>
-                <div className="framework-list">
-                    {
-                        frameworks.map(({ title, url }, index) => (
-                            <img key={index} title={title} src={url} alt={title} />
-                        ))
-                    }
-                </div>
-            </Frameworks>
-        </SkillSection>
-    )
-}
+          ))
+        }
+      </div>
+    </Frameworks>
+  </SkillSection>
+)
 
 export default Skill

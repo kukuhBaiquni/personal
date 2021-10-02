@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import SS1 from 'assets/images/screenshot/ss1.jpeg'
 import SS2 from 'assets/images/screenshot/ss2.jpeg'
 import SS3 from 'assets/images/screenshot/ss3.jpeg'
@@ -41,36 +42,36 @@ const imagesTsq = [TSQ1, TSQ2, TSQ3, TSQ4, TSQ5]
 const imagesExtranet = [Extranet1, Extranet2, Extranet3, Extranet4, Extranet5]
 
 const dataList = [
-    {
-        name: 'Halal Beef Indonesia (Website)',
-        description: `This website was created to provide information about how to join as a Halal Beef Indonesia member and information about catalogs and product details owned by Halal Beef Indonesia.`,
-        stack: [{ url: Javascript, title: 'Javascript' }, { url: NodeJS, title: 'NodeJS' }, { url: Express, title: 'ExpressJS' }, { url: JQuery, title: 'JQuery' }, { url: Mongo, title: 'MongoDB' }, { url: Bootstrap, title: 'Bootstrap' }],
-        shot: []
-    },
-    {
-        name: 'Halal Beef Indonesia (Mobile Apps)',
-        description: `This application is used for consumers to order meat and other Halal Beef Indonesia products. The orders will automatically go to the nearest member location. After making a payment (transfer method), the item is prepared by the member and ready to be sent to the customer.`,
-        stack: [{ url: Javascript, title: 'Javascript' }, { url: React, title: 'React Native' }, { url: Redux, title: 'Redux' }, { url: ReduxSaga, title: 'Redux Saga' }, { url: Firebase, title: 'Firebase' }, { url: Express, title: 'ExpressJS' }, { url: Mongo, title: 'MongoDB' }],
-        shot: imagesMob
-    },
-    {
-        name: 'TravelSquare Website (User)',
-        description: 'This Website was created for lodging reservations.',
-        stack: [{ url: Javascript, title: 'Javascript' }, { url: React, title: 'ReactJS' }, { url: Redux, title: 'Redux' }, { url: Ruby, title: 'Ruby' }, { url: Rails, title: 'Ruby on Rails' }, { url: Spring, title: 'Java Springs' }, { url: Mongo, title: 'MongoDB' }, { url: SASS, title: 'SASS' }],
-        shot: imagesTsq
-    },
-    {
-        name: 'TravelSquare Website (Extranet)',
-        description: 'This Website was created for provide & edit hotel information.',
-        stack: [{ url: Javascript, title: 'Javascript' }, { url: React, title: 'ReactJS' }, { url: Redux, title: 'Redux' }, { url: Ruby, title: 'Ruby' }, { url: Rails, title: 'Ruby on Rails' }, { url: Spring, title: 'Java Springs' }, { url: Mongo, title: 'MongoDB' }, { url: SASS, title: 'SASS' }],
-        shot: imagesExtranet
-    },
-    {
-        name: 'TravelSquare Pricing Comparison Engine (Backend Service)',
-        description: 'This is a crawler, created for collecting realtime price from others OTA.',
-        stack: [{ url: Javascript, title: 'Javascript' }, { url: NodeJS, title: 'NodeJS' }, { url: Express, title: 'ExpressJS' }, { url: Puppeteer, title: 'Puppeteer' }],
-        shot: []
-    }
+  {
+    name: 'Halal Beef Indonesia (Website)',
+    description: 'This website was created to provide information about how to join as a Halal Beef Indonesia member and information about catalogs and product details owned by Halal Beef Indonesia.',
+    stack: [{ url: Javascript, title: 'Javascript' }, { url: NodeJS, title: 'NodeJS' }, { url: Express, title: 'ExpressJS' }, { url: JQuery, title: 'JQuery' }, { url: Mongo, title: 'MongoDB' }, { url: Bootstrap, title: 'Bootstrap' }],
+    shot: [],
+  },
+  {
+    name: 'Halal Beef Indonesia (Mobile Apps)',
+    description: 'This application is used for consumers to order meat and other Halal Beef Indonesia products. The orders will automatically go to the nearest member location. After making a payment (transfer method), the item is prepared by the member and ready to be sent to the customer.',
+    stack: [{ url: Javascript, title: 'Javascript' }, { url: React, title: 'React Native' }, { url: Redux, title: 'Redux' }, { url: ReduxSaga, title: 'Redux Saga' }, { url: Firebase, title: 'Firebase' }, { url: Express, title: 'ExpressJS' }, { url: Mongo, title: 'MongoDB' }],
+    shot: imagesMob,
+  },
+  {
+    name: 'TravelSquare Website (User)',
+    description: 'This Website was created for lodging reservations.',
+    stack: [{ url: Javascript, title: 'Javascript' }, { url: React, title: 'ReactJS' }, { url: Redux, title: 'Redux' }, { url: Ruby, title: 'Ruby' }, { url: Rails, title: 'Ruby on Rails' }, { url: Spring, title: 'Java Springs' }, { url: Mongo, title: 'MongoDB' }, { url: SASS, title: 'SASS' }],
+    shot: imagesTsq,
+  },
+  {
+    name: 'TravelSquare Website (Extranet)',
+    description: 'This Website was created for provide & edit hotel information.',
+    stack: [{ url: Javascript, title: 'Javascript' }, { url: React, title: 'ReactJS' }, { url: Redux, title: 'Redux' }, { url: Ruby, title: 'Ruby' }, { url: Rails, title: 'Ruby on Rails' }, { url: Spring, title: 'Java Springs' }, { url: Mongo, title: 'MongoDB' }, { url: SASS, title: 'SASS' }],
+    shot: imagesExtranet,
+  },
+  {
+    name: 'TravelSquare Pricing Comparison Engine (Backend Service)',
+    description: 'This is a crawler, created for collecting realtime price from others OTA.',
+    stack: [{ url: Javascript, title: 'Javascript' }, { url: NodeJS, title: 'NodeJS' }, { url: Express, title: 'ExpressJS' }, { url: Puppeteer, title: 'Puppeteer' }],
+    shot: [],
+  },
 ]
 
 const PortfolioList = styled(BasicBox)`
@@ -111,86 +112,93 @@ const PortfolioList = styled(BasicBox)`
 `
 
 const Portfolio = ({ portfolioRef }) => {
+  const [tsqImage, setTsqImage] = useState({ isOpen: false, index: 0 })
+  const [mobImage, setMobImage] = useState({ isOpen: false, index: 0 })
+  const [extranetImage, setExtranetImage] = useState({ isOpen: false, index: 0 })
 
-    const [tsqImage, setTsqImage] = useState({ isOpen: false, index: 0 })
-    const [mobImage, setMobImage] = useState({ isOpen: false, index: 0 })
-    const [extranetImage, setExtranetImage] = useState({ isOpen: false, index: 0 })
-
-    const checkShot = (index, idx) => {
-        switch (index) {
-            case 1:
-                setMobImage({ index: idx, isOpen: true })
-                break
-            case 2:
-                setTsqImage({ index: idx, isOpen: true })
-                break
-            case 3:
-                setExtranetImage({ index: idx, isOpen: true })
-                break
-            default:
-                break
-        }
+  const checkShot = (index, idx) => {
+    switch (index) {
+    case 1:
+      setMobImage({ index: idx, isOpen: true })
+      break
+    case 2:
+      setTsqImage({ index: idx, isOpen: true })
+      break
+    case 3:
+      setExtranetImage({ index: idx, isOpen: true })
+      break
+    default:
+      break
     }
+  }
 
-    return (
-        <section ref={portfolioRef}>
-            <SectionHeader>
-                <h4>PORTFOLIO</h4>
-            </SectionHeader>
-            <PortfolioList>
+  return (
+    <section ref={portfolioRef}>
+      <SectionHeader>
+        <h4>PORTFOLIO</h4>
+      </SectionHeader>
+      <PortfolioList>
+        {
+          dataList.map(({
+            name, description, stack, shot,
+          }, index) => (
+            <Fragment key={index}>
+              <h4>{name}</h4>
+              <p>{description}</p>
+              <p>Technology:</p>
+              <div className='stack-list'>
                 {
-                    dataList.map(({ name, description, stack, shot }, index) => (
-                        <Fragment key={index}>
-                            <h4>{name}</h4>
-                            <p>{description}</p>
-                            <p>Technology:</p>
-                            <div className="stack-list">
-                                {
-                                    stack.map(({ url, title }, i) => (
-                                        <img key={i} title={title} src={url} alt={title} />
-                                    ))
-                                }
-                            </div>
-                            {shot.length ? shot.map((url, idx) => <img className='sshot' key={idx} onClick={() => checkShot(index, idx)} src={url} alt='screenshot' />) : <i>Images not available.</i>}
-                        </Fragment>
-                    ))
+                  stack.map(({ url, title }, i) => (
+                    <img alt={title} key={i} src={url} title={title} />
+                  ))
                 }
-            </PortfolioList>
-            {
-                mobImage.isOpen &&
-                <Lightbox
+              </div>
+              {shot.length ? shot.map((url, idx) => <img alt='screenshot' className='sshot' key={idx} src={url} onClick={() => checkShot(index, idx)} />) : <i>Images not available.</i>}
+            </Fragment>
+          ))
+        }
+      </PortfolioList>
+      {
+        mobImage.isOpen
+                && (
+                  <Lightbox
                     mainSrc={imagesMob[mobImage.index]}
                     nextSrc={imagesMob[(mobImage.index + 1) % imagesMob.length]}
                     prevSrc={imagesMob[(mobImage.index + imagesMob.length - 1) % imagesMob.length]}
                     onCloseRequest={() => setMobImage({ isOpen: false, index: 0 })}
-                    onMovePrevRequest={() => setMobImage({ ...mobImage, index: (mobImage.index + imagesMob.length - 1) % imagesMob.length })}
                     onMoveNextRequest={() => setMobImage({ ...mobImage, index: (mobImage.index + 1) % imagesMob.length })}
-                />
-            }
-            {
-                extranetImage.isOpen &&
-                <Lightbox
+                    onMovePrevRequest={() => setMobImage({ ...mobImage, index: (mobImage.index + imagesMob.length - 1) % imagesMob.length })}
+                  />
+                )
+      }
+      {
+        extranetImage.isOpen
+                && (
+                  <Lightbox
                     mainSrc={imagesExtranet[extranetImage.index]}
                     nextSrc={imagesExtranet[(extranetImage.index + 1) % imagesExtranet.length]}
                     prevSrc={imagesExtranet[(extranetImage.index + imagesExtranet.length - 1) % imagesExtranet.length]}
                     onCloseRequest={() => setExtranetImage({ isOpen: false, index: 0 })}
-                    onMovePrevRequest={() => setExtranetImage({ ...extranetImage, index: (extranetImage.index + imagesExtranet.length - 1) % imagesExtranet.length })}
                     onMoveNextRequest={() => setExtranetImage({ ...extranetImage, index: (extranetImage.index + 1) % imagesExtranet.length })}
-                />
-            }
-            {
-                tsqImage.isOpen &&
-                <Lightbox
+                    onMovePrevRequest={() => setExtranetImage({ ...extranetImage, index: (extranetImage.index + imagesExtranet.length - 1) % imagesExtranet.length })}
+                  />
+                )
+      }
+      {
+        tsqImage.isOpen
+                && (
+                  <Lightbox
                     mainSrc={imagesTsq[tsqImage.index]}
                     nextSrc={imagesTsq[(tsqImage.index + 1) % imagesTsq.length]}
                     prevSrc={imagesTsq[(tsqImage.index + imagesTsq.length - 1) % imagesTsq.length]}
                     onCloseRequest={() => setTsqImage({ isOpen: false, index: 0 })}
-                    onMovePrevRequest={() => setTsqImage({ ...tsqImage, index: (tsqImage.index + imagesTsq.length - 1) % imagesTsq.length })}
                     onMoveNextRequest={() => setTsqImage({ ...tsqImage, index: (tsqImage.index + 1) % imagesTsq.length })}
-                />
-            }
-        </section>
-    )
+                    onMovePrevRequest={() => setTsqImage({ ...tsqImage, index: (tsqImage.index + imagesTsq.length - 1) % imagesTsq.length })}
+                  />
+                )
+      }
+    </section>
+  )
 }
 
 export default Portfolio

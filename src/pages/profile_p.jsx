@@ -1,6 +1,6 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { Fragment } from 'react'
 import styled from 'styled-components'
-import { SectionHeader } from '../components'
 
 import Image from 'assets/images/me.jpg'
 
@@ -8,6 +8,7 @@ import Facebook from 'assets/svg/facebook.svg'
 import Codewars from 'assets/svg/codewars.svg'
 import LinkedIn from 'assets/svg/linkedin.svg'
 import Github from 'assets/svg/github.svg'
+import { SectionHeader } from '../components'
 
 const codewarsBadge = 'https://www.codewars.com/users/kuniku/badges/large'
 const facebookUrl = 'https://web.facebook.com/kukuhbaiquni'
@@ -16,17 +17,17 @@ const githubUrl = 'https://github.com/kukuhBaiquni'
 const codewarsUrl = 'https://www.codewars.com/users/kuniku'
 
 const socMed = [
-    { icon: Facebook, name: facebookUrl, title: 'Facebook' },
-    { icon: LinkedIn, name: linkedInUrl, title: 'LinkedIn' },
-    { icon: Github, name: githubUrl, title: 'Github' },
-    { icon: Codewars, name: codewarsUrl, title: 'Codewars' }
+  { icon: Facebook, name: facebookUrl, title: 'Facebook' },
+  { icon: LinkedIn, name: linkedInUrl, title: 'LinkedIn' },
+  { icon: Github, name: githubUrl, title: 'Github' },
+  { icon: Codewars, name: codewarsUrl, title: 'Codewars' },
 ]
 
 const data = {
-    'Full Name': 'Kukuh Baiquni',
-    'Nationality': 'Indonesia',
-    'Gender': 'Male',
-    'Address': 'Bandung, Indonesia'
+  'Full Name': 'Kukuh Baiquni',
+  Nationality: 'Indonesia',
+  Gender: 'Male',
+  Address: 'Bandung, Indonesia',
 }
 
 const ProfileSection = styled.section`
@@ -108,43 +109,40 @@ const SocialMedia = styled.div`
     }
 `
 
-
-const Profile = () => {
-    return (
-        <ProfileSection>
-            <SectionHeader>
-                <h4>MY PROFILE</h4>
-            </SectionHeader>
-            <ProfilePart>
-                <PhotoPart>
-                    <img id='me' src={Image} alt='me' />
-                </PhotoPart>
-                <BioPart>
-                    {
-                        Object.entries(data).map(([prop, value], index) => (
-                            <Fragment key={index}>
-                                <label>{prop}</label>
-                                <span>{value}</span>
-                            </Fragment>
-                        ))
-                    }
-                    <SocialMedia >
-                        {
-                            socMed.map(({ icon, name, title }, index) => (
-                                <a key={index} href={name} title={title} target='_blank'>
-                                    <img src={icon} alt='title' />
-                                </a>
-                            ))
-                        }
-                    </SocialMedia>
-                </BioPart>
-            </ProfilePart>
-            <SectionHeader>
-                <img id='codewars' src={codewarsBadge} alt='codewars' />
-                <a href="https://codewars.com" target="_blank" rel="noopener noreferrer">Join Codewars</a>
-            </SectionHeader>
-        </ProfileSection>
-    )
-}
+const Profile = () => (
+  <ProfileSection>
+    <SectionHeader>
+      <h4>MY PROFILE</h4>
+    </SectionHeader>
+    <ProfilePart>
+      <PhotoPart>
+        <img alt='me' id='me' src={Image} />
+      </PhotoPart>
+      <BioPart>
+        {
+          Object.entries(data).map(([prop, value], index) => (
+            <Fragment key={index}>
+              <label>{prop}</label>
+              <span>{value}</span>
+            </Fragment>
+          ))
+        }
+        <SocialMedia>
+          {
+            socMed.map(({ icon, name, title }, index) => (
+              <a href={name} key={index} rel='noreferrer' target='_blank' title={title}>
+                <img alt='title' src={icon} />
+              </a>
+            ))
+          }
+        </SocialMedia>
+      </BioPart>
+    </ProfilePart>
+    <SectionHeader>
+      <img alt='codewars' id='codewars' src={codewarsBadge} />
+      <a href='https://codewars.com' rel='noopener noreferrer' target='_blank'>Join Codewars</a>
+    </SectionHeader>
+  </ProfileSection>
+)
 
 export default Profile
